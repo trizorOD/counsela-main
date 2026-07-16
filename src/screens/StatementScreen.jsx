@@ -45,6 +45,7 @@ function StatementScreen({
     isActive,
     isDesktop,
     isMobile,
+    onBackNavigationChange,
     onFieldChange,
     onLayoutChange,
     onMobileNavigationChange,
@@ -241,6 +242,17 @@ function StatementScreen({
         setScreenState("record");
     }, [clearProcessingTimers]);
 
+    const handleInternalBack = useCallback(() => {
+        if (screenState === "editing") {
+            setDraftText(statementText);
+            setEditingError(null);
+            setScreenState("result");
+            return;
+        }
+
+        returnToRecordings();
+    }, [returnToRecordings, screenState, statementText]);
+
     useEffect(() => {
         activeRef.current = isActive;
 
@@ -295,6 +307,20 @@ function StatementScreen({
         };
     }, [handlePrimaryAction, isActive, isMobile, onMobileNavigationChange, primaryDisabled]);
 
+    useEffect(() => {
+        if (!isActive || !["result", "editing"].includes(screenState)) {
+            return undefined;
+        }
+
+        onBackNavigationChange("statement", {
+            onBack: handleInternalBack
+        });
+
+        return () => {
+            onBackNavigationChange("statement", null);
+        };
+    }, [handleInternalBack, isActive, onBackNavigationChange, screenState]);
+
     const recorderError = errorCode
         ? t(`statement.record.errors.${errorCode}`)
         : null;
@@ -342,11 +368,13 @@ function StatementScreen({
                                                 : "statement.record.tapToAnswer")}
                             </span>
 
-                            {isRecording ? (
+                            {isRecording && recordings.length === 0 && (
                                 <p className="statement-recorder__hint">
                                     {t("statement.record.recordingHint", { count: maxRecordings })}
                                 </p>
-                            ) : (
+                            )}
+
+                            {!isRecording && recordings.length === 0 && (
                                 <p className="statement-recorder__language">
                                     <img src={iconGlobe} alt="" />
                                     {t("statement.record.anyLanguage")}
@@ -359,7 +387,7 @@ function StatementScreen({
                                 </div>
                             )}
 
-                            {!isRecording && recordings.length > 0 && (
+                            {recordings.length > 0 && (
                                 <div className="statement-recordings">
                                     <span className="statement-recordings__title">
                                         {t("statement.record.recordingsTitle")}

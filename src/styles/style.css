@@ -1913,6 +1913,7 @@ label.case__option input[type="checkbox"]:checked + .case__option-box .case__opt
 
 .statement-recorder__status {
     display: block;
+    min-height: 20px;
     margin-top: 28px;
     color: rgba(0, 0, 0, 0.70);
     font-size: 14px;

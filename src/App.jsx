@@ -19,6 +19,7 @@ function App() {
     const loggedCompletionRef = useRef("");
     const [activeStep, setActiveStep] = useState(0);
     const [formData, setFormData] = useState(getSavedFormData);
+    const [backNavigation, setBackNavigation] = useState(null);
     const [mobileNavigation, setMobileNavigation] = useState(null);
     const isMobile = useIsMobile();
     const isDesktop = useIsDesktop();
@@ -72,6 +73,19 @@ function App() {
 
     const handleMobileNavigationChange = useCallback((stepId, navigation) => {
         setMobileNavigation((currentNavigation) => {
+            if (navigation) {
+                return {
+                    ...navigation,
+                    stepId
+                };
+            }
+
+            return currentNavigation?.stepId === stepId ? null : currentNavigation;
+        });
+    }, []);
+
+    const handleBackNavigationChange = useCallback((stepId, navigation) => {
+        setBackNavigation((currentNavigation) => {
             if (navigation) {
                 return {
                     ...navigation,
@@ -168,6 +182,9 @@ function App() {
     const activeMobileNavigation = mobileNavigation?.stepId === currentStep.id
         ? mobileNavigation
         : null;
+    const activeBackNavigation = backNavigation?.stepId === currentStep.id
+        ? backNavigation
+        : null;
     const currentStepHasErrors = currentStep.validationFields
         ? Object.keys(validateFields(currentStep.validationFields, formData)).length > 0
         : false;
@@ -180,7 +197,7 @@ function App() {
                     showProgress={activeStep > 0}
                     totalSteps={totalSteps}
                     titleStep={t(currentStep.titleKey)}
-                    onBack={goBack}
+                    onBack={activeBackNavigation?.onBack || goBack}
                 />
 
                 <form className="form" noValidate onSubmit={(event) => event.preventDefault()}>
@@ -210,6 +227,7 @@ function App() {
                                     key={step.id}
                                 >
                                     <step.Component
+                                        onBackNavigationChange={handleBackNavigationChange}
                                         onFormChange={handleFormChange}
                                         onComplete={completeStep}
                                         onFieldChange={updateFormData}
