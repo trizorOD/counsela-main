@@ -216,6 +216,7 @@ function App() {
                         preventClicksPropagation={false}
                         preventInteractionOnTransition={true}
                         speed={300}
+                        spaceBetween={48}
                         onSwiper={(swiper) => {
                             swiperRef.current = swiper;
                         }}

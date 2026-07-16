@@ -383,6 +383,7 @@ function StatementScreen({
                 allowTouchMove={false}
                 preventInteractionOnTransition={true}
                 speed={statementTransitionSpeed}
+                spaceBetween={48}
                 onSwiper={(swiper) => {
                     statementSwiperRef.current = swiper;
                 }}
