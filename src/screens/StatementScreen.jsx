@@ -146,6 +146,7 @@ function StatementScreen({
 
         try {
             const result = await createStatement(recordings, {
+                language: formData.language,
                 onStage: updateProcessingStage,
                 signal: controller.signal
             });
@@ -178,6 +179,7 @@ function StatementScreen({
         }
     }, [
         clearProcessingTimers,
+        formData.language,
         onFieldChange,
         recorderStatus,
         recordings,

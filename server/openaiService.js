@@ -1,4 +1,4 @@
-import { openAiConfig, statementPrompt } from "./openaiConfig.js";
+import { createStatementPrompt, openAiConfig } from "./openaiConfig.js";
 
 export class OpenAIRequestError extends Error {
     constructor(code, message, status = 502) {
@@ -69,7 +69,7 @@ function getResponseText(data) {
         .trim();
 }
 
-async function draftStatement(transcripts, apiKey, signal) {
+async function draftStatement(transcripts, language, apiKey, signal) {
     const sourceText = transcripts
         .map((transcript, index) => `Recording ${index + 1}:\n${transcript}`)
         .join("\n\n");
@@ -81,7 +81,7 @@ async function draftStatement(transcripts, apiKey, signal) {
         },
         body: JSON.stringify({
             model: openAiConfig.statementModel,
-            instructions: statementPrompt,
+            instructions: createStatementPrompt(language),
             input: [
                 {
                     role: "user",
@@ -118,7 +118,7 @@ async function draftStatement(transcripts, apiKey, signal) {
     return statement;
 }
 
-export async function createStatementFromAudio(files, { apiKey, onStage, signal }) {
+export async function createStatementFromAudio(files, { apiKey, language, onStage, signal }) {
     onStage("listening");
     onStage("transcribing");
 
@@ -144,7 +144,7 @@ export async function createStatementFromAudio(files, { apiKey, onStage, signal 
     }
 
     onStage("organizing");
-    const statementPromise = draftStatement(transcripts, apiKey, signal);
+    const statementPromise = draftStatement(transcripts, language, apiKey, signal);
     onStage("almost-ready");
 
     return statementPromise;

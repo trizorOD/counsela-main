@@ -1,3 +1,5 @@
+import { languages } from "../src/data/languages.js";
+
 export const openAiConfig = {
     get baseUrl() {
         return process.env.OPENAI_BASE_URL || "https://api.openai.com/v1";
@@ -16,9 +18,24 @@ export const audioLimits = {
     maxRequestBytes: 126 * 1024 * 1024
 };
 
-export const statementPrompt = `You are an assistant helping a user prepare a clear factual statement about their situation.
+const statementLanguages = new Map(
+    languages.map(({ code, statementLanguage }) => [code, statementLanguage])
+);
 
-Using the supplied audio transcripts, write a coherent and well-structured statement in English.
+export function getStatementLanguage(languageCode) {
+    return statementLanguages.get(languageCode) || null;
+}
+
+export function createStatementPrompt(languageCode) {
+    const statementLanguage = getStatementLanguage(languageCode);
+
+    if (!statementLanguage) {
+        throw new TypeError(`Unsupported statement language: ${languageCode}`);
+    }
+
+    return `You are an assistant helping a user prepare a clear factual statement about their situation.
+
+Using the supplied audio transcripts, write a coherent and well-structured statement in ${statementLanguage}.
 
 Requirements:
 
@@ -27,9 +44,10 @@ Requirements:
 - Do not remove potentially important information.
 - Remove only obvious repetitions and speech disfluencies.
 - Present events in a logical or chronological order whenever possible.
-- Use clear, neutral and professional English.
+- Use clear, neutral and professional ${statementLanguage}.
 - Write from the user's perspective using the first person.
 - Do not provide legal advice.
 - Do not claim that any allegation has been proven.
 - If the source information is ambiguous or contradictory, preserve that uncertainty instead of guessing.
 - Return only the finished statement without explanations, comments, or Markdown code fences.`;
+}

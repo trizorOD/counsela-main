@@ -1,4 +1,4 @@
-import { getAudioExtension } from "../utils/audio";
+import { getAudioExtension } from "../utils/audio.js";
 
 export class StatementApiError extends Error {
     constructor(code, message) {
@@ -56,8 +56,9 @@ function handleStreamEvent(event, onStage) {
     return null;
 }
 
-export async function createStatement(recordings, { onStage, signal } = {}) {
+export async function createStatement(recordings, { language, onStage, signal } = {}) {
     const body = new FormData();
+    body.append("language", language);
 
     recordings.forEach((recording, index) => {
         const extension = getAudioExtension(recording.mimeType);

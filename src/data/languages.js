@@ -1,47 +1,58 @@
 export const languages = [
     {
         code: "en",
-        label: "English"
+        label: "English",
+        statementLanguage: "English"
     },
     {
         code: "es",
-        label: "Español"
+        label: "Español",
+        statementLanguage: "Spanish"
     },
     {
         code: "pt",
-        label: "Português"
+        label: "Português",
+        statementLanguage: "Portuguese"
     },
     {
         code: "uk",
-        label: "Українська"
+        label: "Українська",
+        statementLanguage: "Ukrainian"
     },
     {
         code: "ru",
-        label: "Русский"
+        label: "Русский",
+        statementLanguage: "Russian"
     },
     {
         code: "zh",
-        label: "中文"
+        label: "中文",
+        statementLanguage: "Simplified Chinese"
     },
     {
         code: "ht",
-        label: "Kreyòl Ayisyen"
+        label: "Kreyòl Ayisyen",
+        statementLanguage: "Haitian Creole"
     },
     {
         code: "ar",
-        label: "العربية"
+        label: "العربية",
+        statementLanguage: "Arabic"
     },
     {
         code: "hi",
-        label: "हिन्दी"
+        label: "हिन्दी",
+        statementLanguage: "Hindi"
     },
     {
         code: "vi",
-        label: "Tiếng Việt"
+        label: "Tiếng Việt",
+        statementLanguage: "Vietnamese"
     },
     {
         code: "tl",
-        label: "Tagalog"
+        label: "Tagalog",
+        statementLanguage: "Tagalog"
     }
 ];
 

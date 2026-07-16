@@ -54,14 +54,16 @@ test("validates deployment request size before parsing the body", async () => {
 
 test("streams processing stages and the final statement", async () => {
     const formData = new FormData();
+    formData.append("language", "ru");
     formData.append("audio", new Blob(["audio"], { type: "audio/webm" }), "recording.webm");
     const response = await handleStatementRequest(new Request(endpoint, {
         method: "POST",
         body: formData
     }), {
         apiKey: "test-key",
-        processAudio: async (files, { onStage }) => {
+        processAudio: async (files, { language, onStage }) => {
             assert.equal(files.length, 1);
+            assert.equal(language, "ru");
             onStage("transcribing");
             onStage("organizing");
             return "Prepared statement";
@@ -79,4 +81,19 @@ test("streams processing stages and the final statement", async () => {
         { type: "stage", stage: "organizing" },
         { type: "result", statement: "Prepared statement" }
     ]);
+});
+
+test("rejects an unsupported statement language", async () => {
+    const formData = new FormData();
+    formData.append("language", "unsupported");
+    formData.append("audio", new Blob(["audio"], { type: "audio/webm" }), "recording.webm");
+    const response = await handleStatementRequest(new Request(endpoint, {
+        method: "POST",
+        body: formData
+    }), {
+        apiKey: "test-key"
+    });
+
+    assert.equal(response.status, 400);
+    assert.equal((await response.json()).error.code, "invalid_language");
 });

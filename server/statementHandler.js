@@ -1,4 +1,4 @@
-import { audioLimits } from "./openaiConfig.js";
+import { audioLimits, getStatementLanguage } from "./openaiConfig.js";
 import { createStatementFromAudio, OpenAIRequestError } from "./openaiService.js";
 
 const jsonHeaders = {
@@ -100,11 +100,30 @@ function getAudioFiles(formData) {
     return files;
 }
 
-async function parseAudioFiles(request, maxRequestBytes) {
+function getStatementLanguageCode(formData) {
+    const language = formData.get("language");
+
+    if (typeof language !== "string" || !getStatementLanguage(language)) {
+        throw new OpenAIRequestError(
+            "invalid_language",
+            "Select a supported statement language before continuing.",
+            400
+        );
+    }
+
+    return language;
+}
+
+async function parseStatementRequest(request, maxRequestBytes) {
     validateRequestMetadata(request, maxRequestBytes);
 
     try {
-        return getAudioFiles(await request.formData());
+        const formData = await request.formData();
+
+        return {
+            files: getAudioFiles(formData),
+            language: getStatementLanguageCode(formData)
+        };
     } catch (error) {
         if (error instanceof OpenAIRequestError) {
             throw error;
@@ -118,7 +137,7 @@ async function parseAudioFiles(request, maxRequestBytes) {
     }
 }
 
-function createEventStream(request, files, { apiKey, processAudio }) {
+function createEventStream(request, files, language, { apiKey, processAudio }) {
     const encoder = new TextEncoder();
     const processingController = new AbortController();
     const abortProcessing = () => processingController.abort();
@@ -144,6 +163,7 @@ function createEventStream(request, files, { apiKey, processAudio }) {
             Promise.resolve()
                 .then(() => processAudio(files, {
                     apiKey,
+                    language,
                     onStage: (stage) => sendEvent({ type: "stage", stage }),
                     signal: processingController.signal
                 }))
@@ -193,17 +213,22 @@ export async function handleStatementRequest(request, {
         });
     }
 
-    let files;
+    let statementRequest;
 
     try {
-        files = await parseAudioFiles(request, maxRequestBytes);
+        statementRequest = await parseStatementRequest(request, maxRequestBytes);
     } catch (error) {
         return createJsonResponse(error.status || 400, {
             error: getStatementErrorPayload(error)
         });
     }
 
-    return new Response(createEventStream(request, files, { apiKey, processAudio }), {
+    return new Response(createEventStream(
+        request,
+        statementRequest.files,
+        statementRequest.language,
+        { apiKey, processAudio }
+    ), {
         status: 200,
         headers: {
             "Cache-Control": "no-store",
