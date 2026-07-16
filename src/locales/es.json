@@ -1,0 +1,157 @@
+{
+  "common": {
+    "title": "Counsela",
+    "others": "Otros",
+    "vs": "vs",
+    "continue": "Continuar",
+    "back": "Atrás"
+  },
+  "progress": {
+    "step": "Paso",
+    "of": "de"
+  },
+  "steps": {
+    "language": "Idioma",
+    "focus": "Enfoque",
+    "communication": "Comunicación",
+    "price": "Precio",
+    "credentials": "Credenciales",
+    "case": "Tu caso"
+  },
+  "language": {
+    "tagline": "Counsela · Abogados de inmigración",
+    "title": "Ayuda migratoria que te trata como una persona, no como un número de caso.",
+    "description": "Abogados de inmigración de EE. UU. con licencia, asignados según tu situación exacta, con alguien a tu lado durante todo el proceso.",
+    "languageSelectionTitle": "Hablamos tu idioma.",
+    "info": {
+      "firstText": "Revisión gratuita del caso",
+      "secondaryText": "Toma unos 3 minutos"
+    }
+  },
+  "focus": {
+    "title": "La diferencia está en el enfoque.",
+    "description": "La ley de inmigración no es un solo trabajo. La persona que te asignen lo cambia todo.",
+    "compare": {
+      "negativeText": "Una firma pequeña de 1–4 abogados, repartida entre todo tipo de casos migratorios.",
+      "positiveText": "Una red de cientos de abogados verificados, cada uno enfocado en casos exactamente como el tuyo."
+    },
+    "coverage": {
+      "count": "1–4 abogados",
+      "areas": [
+        "EB-1",
+        "Asilo",
+        "H-1B",
+        "Green Card",
+        "O-1",
+        "Familia",
+        "Estudiante",
+        "TPS",
+        "L-1",
+        "Ciudadanía"
+      ]
+    },
+    "network": {
+      "title": "Tu tipo de caso",
+      "badge": "+ cientos",
+      "caption": "todos enfocados en casos como el tuyo"
+    }
+  },
+  "communication": {
+    "title": "La diferencia está en la comunicación.",
+    "description": "La parte más difícil de inmigración es el silencio. Nosotros lo eliminamos.",
+    "compare": {
+      "negativeText": "Llamadas sin responder. Semanas de silencio. Nadie que te diga qué está pasando con tu vida.",
+      "positiveText": "Un especialista de caso que conoce tu expediente y responde tus preguntas, normalmente en horas, no semanas."
+    },
+    "missedCall": "Llamada perdida",
+    "day": "Lun",
+    "clientMessage": "¿Alguna novedad sobre mi caso?",
+    "noReply": "Sin respuesta · 1 semana",
+    "specialist": {
+      "name": "Maria R.",
+      "role": "Tu especialista de caso"
+    },
+    "online": "En línea",
+    "reply": "Buenas noticias: tu respuesta al RFE está lista. Por favor, revísala.",
+    "response": {
+      "time": "Respondió en 2 h",
+      "note": "Te mantenemos informado en cada paso"
+    }
+  },
+  "price": {
+    "title": "La diferencia está en el precio.",
+    "description": "La IA hizo que el trabajo legal sea más rápido y barato. Nosotros te trasladamos ese ahorro.",
+    "compare": {
+      "negativeText": "Muchas firmas ya usan IA para hacer el trabajo más rápido, y aun así te cobran el precio de antes.",
+      "positiveText": "Construimos nuestra empresa alrededor de la IA desde el primer día y te pasamos el ahorro: en promedio, honorarios 20% más bajos, cotizados por adelantado. Sin sorpresas por hora."
+    },
+    "aiBadge": "Usa IA para trabajar más rápido",
+    "sameOldPrice": "El mismo precio de siempre",
+    "saving": "honorarios más bajos, en promedio",
+    "discount": "−20% por adelantado",
+    "features": {
+      "quoted": "Cotizado por adelantado",
+      "flat": "Tarifa fija",
+      "noSurprises": "Sin sorpresas por hora"
+    }
+  },
+  "credentials": {
+    "badge": "Abogados verificados",
+    "title": "Tu caso será manejado por un abogado con licencia. Punto.",
+    "description": "Cada abogado de Counsela tiene licencia para ejercer, cuenta con seguro de responsabilidad profesional y tiene experiencia real en el tipo específico de caso que nos traes.",
+    "attorney": {
+      "title": "Tu abogado de inmigración",
+      "description": "Con licencia, asegurado y con experiencia"
+    },
+    "items": [
+      {
+        "title": "Con licencia y en regla",
+        "description": "Membresía activa del colegio, verificada"
+      },
+      {
+        "title": "Seguro de responsabilidad profesional",
+        "description": "Cobertura confirmada en el expediente"
+      },
+      {
+        "title": "Experiencia especializada",
+        "description": "Casos reales en tu categoría exacta"
+      },
+      {
+        "title": "Verificado por Counsela",
+        "description": "Evaluado antes de que te asignemos"
+      }
+    ],
+    "notice": "Los tres puntos se verifican antes de que vean tu expediente."
+  },
+  "case": {
+    "title": "¿Qué te trae por aquí hoy?",
+    "description": "Elige la opción más cercana; podrás explicar los detalles en el siguiente paso.",
+    "options": [
+      {
+        "value": "family",
+        "label": "Familia",
+        "description": "Quiero traer a mi familia o reunirme con ella en EE. UU."
+      },
+      {
+        "value": "work-business",
+        "label": "Trabajo y negocios",
+        "description": "Quiero trabajar, invertir o iniciar un negocio en EE. UU."
+      },
+      {
+        "value": "protection",
+        "label": "Protección",
+        "description": "Necesito seguridad o ayuda humanitaria."
+      },
+      {
+        "value": "defense",
+        "label": "Defensa",
+        "description": "Enfrento deportación, una denegación u otro problema legal."
+      },
+      {
+        "value": "other",
+        "label": "No estoy seguro / Otro",
+        "description": "Mi situación no encaja, o no sé por dónde empezar."
+      }
+    ]
+  }
+}

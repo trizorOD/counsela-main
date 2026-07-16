@@ -1,0 +1,290 @@
+{
+    "common": {
+        "title": "Counsela",
+        "others": "Others",
+        "vs": "vs",
+        "continue": "Continue",
+        "back": "Back"
+    },
+    "progress": {
+        "step": "Step",
+        "of": "of"
+    },
+    "steps": {
+        "language": "Language",
+        "focus": "Focus",
+        "communication": "Communication",
+        "price": "Price",
+        "credentials": "Credentials",
+        "case": "Your case",
+        "statement": "Your statement",
+        "contact": "Contact"
+    },
+    "form": {
+        "fields": {
+            "fullName": {
+                "label": "Full name",
+                "placeholder": "Your full name"
+            },
+            "email": {
+                "label": "Email",
+                "placeholder": "name@email.com"
+            },
+            "phone": {
+                "label": "Phone",
+                "placeholder": "+1 (305) 555-0134"
+            }
+        },
+        "contactMethod": {
+            "label": "How should we reach you first?",
+            "options": {
+                "whatsapp": "WhatsApp",
+                "telegram": "Telegram",
+                "sms": "Text (SMS)",
+                "phone": "Phone call"
+            }
+        },
+        "privacy": "Confidential. Never sold, never shared.",
+        "submit": "Get my case review"
+    },
+    "validation": {
+        "required": "This field is required.",
+        "email": "Enter a valid email address.",
+        "phone": "Enter a valid phone number.",
+        "tooShort": "The value is too short.",
+        "tooLong": "The value is too long.",
+        "minimum": "Enter a value at or above the minimum.",
+        "maximum": "Enter a value at or below the maximum.",
+        "selectOne": "Select one of the options.",
+        "selectAtLeastOne": "Select at least one option.",
+        "accept": "You must accept this option to continue."
+    },
+    "language": {
+        "tagline": "Counsela · Immigration Attorneys",
+        "title": "Immigration help that treats you like a person, not a case number.",
+        "description": "Licensed U.S. immigration attorneys, matched to your exact situation — with someone by your side the whole way.",
+        "languageSelectionTitle": "We speak your language.",
+        "info": {
+            "firstText": "Free case review",
+            "secondaryText": "Takes about 3 minutes"
+        }
+    },
+    "focus": {
+        "title": "The difference is focus.",
+        "description": "Immigration law isn't one job. Who you're matched with changes everything.",
+        "compare": {
+            "negativeText": "A small firm of 1–4 lawyers, stretched across every type of immigration case.",
+            "positiveText": "A network of hundreds of vetted attorneys — each one focused on cases exactly like yours."
+        },
+        "coverage": {
+            "count": "1–4 lawyers",
+            "areas": [
+                "EB-1",
+                "Asylum",
+                "H-1B",
+                "Green Card",
+                "O-1",
+                "Family",
+                "Student",
+                "TPS",
+                "L-1",
+                "Citizenship"
+            ]
+        },
+        "network": {
+            "title": "Your case type",
+            "badge": "+ hundreds",
+            "caption": "all focused on cases like yours"
+        }
+    },
+    "communication": {
+        "title": "The difference is communication.",
+        "description": "The hardest part of immigration is the silence. We remove it.",
+        "compare": {
+            "negativeText": "Unanswered calls. Weeks of silence. Nobody to tell you what's happening with your life.",
+            "positiveText": "A case specialist who knows your file, and answers your questions — usually within hours, not weeks."
+        },
+        "missedCall": "Missed call",
+        "day": "Mon",
+        "clientMessage": "Any update on my case?",
+        "noReply": "No reply · 1 week",
+        "specialist": {
+            "name": "Maria R.",
+            "role": "Your case specialist"
+        },
+        "online": "Online",
+        "reply": "Good news — your RFE response is ready. Please look over it.",
+        "response": {
+            "time": "Replied in 2h",
+            "note": "You're updated at every step"
+        }
+    },
+    "price": {
+        "title": "The difference is price.",
+        "description": "AI made legal work faster and cheaper. We're the ones who pass it on.",
+        "compare": {
+            "negativeText": "Many firms already use AI to do the work faster — and still charge you the old price.",
+            "positiveText": "We built our company around AI from day one, and we pass the savings to you: on average 20% lower fees, quoted upfront. No hourly surprises."
+        },
+        "aiBadge": "Uses AI to work faster",
+        "sameOldPrice": "Same old price",
+        "saving": "lower fees, on average",
+        "discount": "−20% upfront",
+        "features": {
+            "quoted": "Quoted upfront",
+            "flat": "Flat fee",
+            "noSurprises": "No hourly surprises"
+        }
+    },
+    "credentials": {
+        "badge": "Verified attorneys",
+        "title": "Your case will be handled by a licensed attorney. Full stop.",
+        "description": "Every Counsela attorney is licensed to practice, carries malpractice insurance, and has real experience in the specific type of case you bring us.",
+        "attorney": {
+            "title": "Your immigration attorney",
+            "description": "Licensed, insured & experienced"
+        },
+        "items": [
+            {
+                "title": "Licensed & in good standing",
+                "description": "Active bar membership, verified"
+            },
+            {
+                "title": "Malpractice insured",
+                "description": "Coverage confirmed on file"
+            },
+            {
+                "title": "Niche-experienced",
+                "description": "Real cases in your exact category"
+            },
+            {
+                "title": "Vetted by Counsela",
+                "description": "Screened before we ever match you"
+            }
+        ],
+        "notice": "All three verified before they ever see your file."
+    },
+    "case": {
+        "title": "What brings you here today?",
+        "description": "Choose the closest match — you can explain the details in the next step.",
+        "options": [
+            {
+                "value": "family",
+                "label": "Family",
+                "description": "I want to bring or join family in the U.S."
+            },
+            {
+                "value": "work-business",
+                "label": "Work & Business",
+                "description": "I want to work, invest, or start a business in the U.S."
+            },
+            {
+                "value": "protection",
+                "label": "Protection",
+                "description": "I need safety or humanitarian help."
+            },
+            {
+                "value": "defense",
+                "label": "Defense",
+                "description": "I’m facing deportation, a denial, or another legal issue."
+            },
+            {
+                "value": "other",
+                "label": "Not sure / Other",
+                "description": "My situation doesn’t fit — or I don’t know where to start."
+            }
+        ]
+    },
+    "statement": {
+        "contextFallback": "Your situation",
+        "topics": [
+            "What do you want to do in the U.S. — work for a company, invest, or start something?",
+            "What's your current status and where are you now?",
+            "What's your professional background or field?",
+            "Do you have an employer, investors, or a business already?",
+            "Anything else that might help us understand your situation?"
+        ],
+        "record": {
+            "title": "Tell us about your situation — in your own words.",
+            "description": "Speak in any language. Talk to us like you'd talk to a friend. The more you share, the better we can pair you with the right attorney.",
+            "topicsTitle": "You might touch on:",
+            "start": "Start recording",
+            "stop": "Stop recording",
+            "tapToAnswer": "Tap to answer",
+            "addMore": "Tap the mic to add more",
+            "limitReached": "You've added all 5 recordings",
+            "requestingPermission": "Waiting for microphone access…",
+            "listening": "Listening…",
+            "recordingHint": "Need a moment? Tap stop, breathe, and continue in a new recording — you can record up to {{count}}.",
+            "anyLanguage": "Any language — we'll understand.",
+            "recordingsTitle": "Your recordings",
+            "play": "Play recording",
+            "pause": "Pause recording",
+            "delete": "Delete recording",
+            "errors": {
+                "unsupported": "Audio recording is not supported in this browser. Try a current browser over a secure connection.",
+                "permissionDenied": "Microphone access was denied. Allow microphone access in your browser settings and try again.",
+                "noDevice": "No microphone was found. Connect a microphone and try again.",
+                "deviceBusy": "The microphone is unavailable or being used by another application. Close it there and try again.",
+                "security": "The browser blocked microphone access for security reasons. Open this page over HTTPS and try again.",
+                "recordingFailed": "The recording stopped unexpectedly. Please try again.",
+                "tooShort": "That recording was too short. Please try again and speak for a moment before stopping.",
+                "maxRecordings": "You can add up to 5 recordings. Delete one to record another.",
+                "unknown": "We couldn't access the microphone. Check its connection and browser permissions, then try again."
+            }
+        },
+        "processing": {
+            "stages": {
+                "listening": "Listening carefully…",
+                "transcribing": "Writing down every detail…",
+                "organizing": "Organizing your story…",
+                "almost-ready": "Almost ready for your review"
+            },
+            "errorTitle": "We couldn't finish your statement.",
+            "retry": "Try again",
+            "backToRecordings": "Back to recordings",
+            "errors": {
+                "unknown": "Something went wrong while processing the recordings. Your recordings are still here, so you can try again."
+            }
+        },
+        "result": {
+            "title": "Here's what we heard.",
+            "description": "Read it over and fix anything we got wrong — every detail helps your attorney understand your case.",
+            "storyLabel": "Your story",
+            "edit": "Edit",
+            "done": "Done",
+            "emptyError": "Your statement cannot be empty."
+        }
+    },
+    "contact": {
+        "title": "Last step — where can we reach you?",
+        "description": "Your Case manager will contact you here."
+    },
+    "done": {
+        "title": "Done. Here's what happens next.",
+        "timeline": [
+            {
+                "title": "Usually within 1-2 business days",
+                "description": "Your Case manager reviews your story."
+            },
+            {
+                "title": "A short intro call",
+                "description": "We schedule a call with your Case manager to clarify the details."
+            },
+            {
+                "title": "Your attorney",
+                "description": "We pair you with a lawyer who handles cases exactly like yours."
+            },
+            {
+                "title": "Your plan",
+                "description": "A clear assessment and an upfront price. No obligation."
+            }
+        ],
+        "contact": {
+            "whatsapp": "We'll reach you on WhatsApp within 24 business hours.",
+            "telegram": "We'll reach you on Telegram within 24 business hours.",
+            "sms": "We'll reach you via SMS within 24 business hours.",
+            "phone": "We'll call you within 24 business hours."
+        }
+    }
+}
