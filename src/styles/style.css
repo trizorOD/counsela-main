@@ -2118,11 +2118,11 @@ label.case__option input[type="checkbox"]:checked + .case__option-box .case__opt
 }
 
 .statement-result__dot {
-    width: 10px;
-    height: 10px;
-    border: 3px solid rgba(78, 108, 242, 0.18);
+    width: 8px;
+    height: 8px;
+    border: 4px solid #E6EAFD;
     border-radius: 50%;
-    background-color: #4E6CF2;
+    background-color: #4e6cf2;
     box-sizing: content-box;
 }
 
@@ -2183,7 +2183,6 @@ label.case__option input[type="checkbox"]:checked + .case__option-box .case__opt
 
 .statement-result__textarea:focus {
     border-color: rgba(78, 108, 242, 0.55);
-    box-shadow: 0 0 0 3px rgba(78, 108, 242, 0.10);
 }
 
 .statement-processing {
