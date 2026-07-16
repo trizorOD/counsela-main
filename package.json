@@ -4,7 +4,11 @@
         "dev": "node server/index.js --dev",
         "build": "vite build",
         "preview": "vite preview --host 127.0.0.1",
-        "start": "node server/index.js"
+        "start": "node server/index.js",
+        "test": "node --test"
+    },
+    "engines": {
+        "node": "^20.19.0 || >=22.12.0"
     },
     "dependencies": {
         "@vitejs/plugin-react": "^5.0.0",

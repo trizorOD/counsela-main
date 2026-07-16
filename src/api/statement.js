@@ -9,6 +9,21 @@ export class StatementApiError extends Error {
 }
 
 async function readErrorResponse(response) {
+    const fallbackErrors = {
+        404: new StatementApiError(
+            "service_not_found",
+            "Audio processing is not available on this deployment."
+        ),
+        413: new StatementApiError(
+            "request_too_large",
+            "The recordings are too large for this deployment. Try shorter recordings."
+        ),
+        503: new StatementApiError(
+            "service_not_configured",
+            "Audio processing is not configured yet."
+        )
+    };
+
     try {
         const payload = await response.json();
         return new StatementApiError(
@@ -16,7 +31,8 @@ async function readErrorResponse(response) {
             payload.error?.message || "The recordings could not be processed."
         );
     } catch {
-        return new StatementApiError("invalid_response", "The processing service returned an invalid response.");
+        return fallbackErrors[response.status]
+            || new StatementApiError("invalid_response", "The processing service returned an invalid response.");
     }
 }
 
