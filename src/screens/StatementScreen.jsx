@@ -82,18 +82,6 @@ function StatementScreen({
     } = useAudioRecorder(maxRecordings);
     const { playback, stop: stopPlayback, toggle: togglePlayback } = useAudioPlayback();
 
-    const caseLabel = useMemo(() => {
-        const options = t("case.options", { returnObjects: true });
-        const selectedCases = Array.isArray(formData.cases) ? formData.cases : [];
-        const selectedLabels = Array.isArray(options)
-            ? options
-                .filter((option) => selectedCases.includes(option.value))
-                .map((option) => option.label)
-            : [];
-
-        return selectedLabels.join(" / ") || t("statement.contextFallback");
-    }, [formData.cases, t]);
-
     const topics = t("statement.topics", { returnObjects: true });
     const isRecording = recorderStatus === "recording";
     const isRequestingMicrophone = recorderStatus === "requesting";
@@ -398,7 +386,7 @@ function StatementScreen({
                 >
                     <div className="statement">
                         <div className="statement__header">
-                            <span className="statement__context">{caseLabel}</span>
+                            <span className="statement__context">{t("statement.record.label")}</span>
                             <h3 className="statement__title">{t("statement.record.title")}</h3>
                             <p className="statement__description">{t("statement.record.description")}</p>
                         </div>

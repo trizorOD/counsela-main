@@ -202,9 +202,10 @@
             "What's your current status and where are you now?",
             "What's your professional background or field?",
             "Do you have an employer, investors, or a business already?",
-            "Anything else that might help us understand your situation?"
+            "Anything else that might help to obtain visa?"
         ],
         "record": {
+            "label": "Work & Business",
             "title": "Tell us about your situation — in your own words.",
             "description": "Speak in any language. Talk to us like you'd talk to a friend. The more you share, the better we can pair you with the right attorney.",
             "topicsTitle": "You might touch on:",
