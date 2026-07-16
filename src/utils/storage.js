@@ -1,4 +1,4 @@
-import { defaultLanguage, languageCodes } from "../data/languages";
+import { defaultLanguage, languageCodes } from "../data/languages.js";
 import { coerceFormData, getInitialFormData } from "./form.js";
 
 export const formStorageKey = "counsela_form_data";
@@ -54,4 +54,9 @@ export function saveFormData(data) {
 
 export function saveLanguage(language) {
     localStorage.setItem(languageStorageKey, normalizeLanguage(language));
+}
+
+export function clearSavedData() {
+    localStorage.removeItem(formStorageKey);
+    localStorage.removeItem(languageStorageKey);
 }

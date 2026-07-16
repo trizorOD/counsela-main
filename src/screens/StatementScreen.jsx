@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { useTranslation } from "react-i18next";
+import { Swiper, SwiperSlide } from "swiper/react";
 import AudioRecording from "../components/AudioRecording";
 import ContinueButton from "../components/ContinueButton";
 import LottieAnimation from "../components/LottieAnimation";
@@ -17,6 +18,7 @@ import iconStop from "../assets/icons/stop.svg";
 const maxRecordings = 5;
 const processingStages = ["listening", "transcribing", "organizing", "almost-ready"];
 const minimumStageDuration = 650;
+const statementTransitionSpeed = 300;
 
 function waitForMinimumProcessingTime(startedAt, signal) {
     const minimumDuration = minimumStageDuration * processingStages.length;
@@ -53,7 +55,9 @@ function StatementScreen({
 }) {
     const { t } = useTranslation();
     const savedStatement = typeof formData.statement === "string" ? formData.statement : "";
-    const [screenState, setScreenState] = useState(savedStatement.trim() ? "result" : "record");
+    const [screenState, setScreenState] = useState("record");
+    const [statementView, setStatementView] = useState("record");
+    const [isViewTransitioning, setIsViewTransitioning] = useState(false);
     const [statementText, setStatementText] = useState(savedStatement);
     const [draftText, setDraftText] = useState(savedStatement);
     const [processingStage, setProcessingStage] = useState(processingStages[0]);
@@ -65,6 +69,7 @@ function StatementScreen({
     const processingStartedAtRef = useRef(0);
     const processingTimersRef = useRef(new Set());
     const processingLockRef = useRef(false);
+    const statementSwiperRef = useRef(null);
     const {
         cancelRecording,
         errorCode,
@@ -156,6 +161,7 @@ function StatementScreen({
             setStatementText(result);
             setDraftText(result);
             onFieldChange("statement", result);
+            setStatementView("result");
             setScreenState("result");
         } catch (error) {
             clearProcessingTimers();
@@ -211,11 +217,12 @@ function StatementScreen({
         }
     }, [handleProcess, onNext, saveEditing, screenState]);
 
-    const primaryDisabled = screenState === "record"
-        ? !recordings.length || isRecorderBusy
-        : screenState === "editing"
-            ? !draftText.trim()
-            : !["result", "editing"].includes(screenState);
+    const primaryDisabled = isViewTransitioning
+        || (screenState === "record"
+            ? !recordings.length || isRecorderBusy
+            : screenState === "editing"
+                ? !draftText.trim()
+                : !["result", "editing"].includes(screenState));
 
     const handleRecordButton = useCallback(() => {
         if (isRecording) {
@@ -234,15 +241,27 @@ function StatementScreen({
     }, [playback.id, removeRecording, stopPlayback]);
 
     const returnToRecordings = useCallback(() => {
+        if (statementSwiperRef.current?.animating) {
+            return;
+        }
+
         processingControllerRef.current?.abort();
         processingControllerRef.current = null;
         processingLockRef.current = false;
         clearProcessingTimers();
         setProcessingError(null);
-        setScreenState("record");
+        setStatementView("record");
+
+        if (!statementSwiperRef.current || statementSwiperRef.current.activeIndex === 0) {
+            setScreenState("record");
+        }
     }, [clearProcessingTimers]);
 
     const handleInternalBack = useCallback(() => {
+        if (isViewTransitioning) {
+            return;
+        }
+
         if (screenState === "editing") {
             setDraftText(statementText);
             setEditingError(null);
@@ -251,7 +270,22 @@ function StatementScreen({
         }
 
         returnToRecordings();
-    }, [returnToRecordings, screenState, statementText]);
+    }, [isViewTransitioning, returnToRecordings, screenState, statementText]);
+
+    const handleStatementTransitionStart = useCallback(() => {
+        setIsViewTransitioning(true);
+        onLayoutChange();
+    }, [onLayoutChange]);
+
+    const handleStatementTransitionEnd = useCallback((swiper) => {
+        setIsViewTransitioning(false);
+
+        if (swiper.activeIndex === 0) {
+            setScreenState("record");
+        }
+
+        onLayoutChange();
+    }, [onLayoutChange]);
 
     useEffect(() => {
         activeRef.current = isActive;
@@ -289,8 +323,24 @@ function StatementScreen({
     }, [screenState]);
 
     useEffect(() => {
-        onLayoutChange();
-    }, [onLayoutChange, recorderStatus, recordings.length, screenState]);
+        const frameId = requestAnimationFrame(() => {
+            statementSwiperRef.current?.updateAutoHeight();
+            onLayoutChange();
+        });
+
+        return () => cancelAnimationFrame(frameId);
+    }, [onLayoutChange, recorderStatus, recordings.length, screenState, statementView]);
+
+    useEffect(() => {
+        const swiper = statementSwiperRef.current;
+        const nextIndex = statementView === "result" ? 1 : 0;
+
+        if (!swiper || swiper.destroyed || swiper.activeIndex === nextIndex) {
+            return;
+        }
+
+        swiper.slideTo(nextIndex);
+    }, [statementView]);
 
     useEffect(() => {
         if (!isActive || !isMobile) {
@@ -327,159 +377,180 @@ function StatementScreen({
 
     return (
         <section className={`screen screen--statement screen--statement-${screenState}`}>
-            {screenState === "record" && (
-                <div className="statement">
-                    <div className="statement__header">
-                        <span className="statement__context">{caseLabel}</span>
-                        <h3 className="statement__title">{t("statement.record.title")}</h3>
-                        <p className="statement__description">{t("statement.record.description")}</p>
-                    </div>
-
-                    <div className="statement__content">
-                        <div className="statement__topics">
-                            <span className="statement__topics-title">{t("statement.record.topicsTitle")}</span>
-                            <ol className="statement__topics-list">
-                                {Array.isArray(topics) && topics.map((topic) => (
-                                    <li key={topic}>{topic}</li>
-                                ))}
-                            </ol>
+            <Swiper
+                className="statement-slides"
+                autoHeight={true}
+                allowTouchMove={false}
+                preventInteractionOnTransition={true}
+                speed={statementTransitionSpeed}
+                onSwiper={(swiper) => {
+                    statementSwiperRef.current = swiper;
+                }}
+                onSlideChangeTransitionStart={handleStatementTransitionStart}
+                onSlideChangeTransitionEnd={handleStatementTransitionEnd}
+            >
+                <SwiperSlide
+                    aria-hidden={statementView !== "record"}
+                    inert={statementView !== "record"}
+                >
+                    <div className="statement">
+                        <div className="statement__header">
+                            <span className="statement__context">{caseLabel}</span>
+                            <h3 className="statement__title">{t("statement.record.title")}</h3>
+                            <p className="statement__description">{t("statement.record.description")}</p>
                         </div>
 
-                        <div className={`statement-recorder ${isRecording ? "is-recording" : ""}`}>
-                            <button
-                                className="statement-recorder__button"
-                                type="button"
-                                onClick={handleRecordButton}
-                                disabled={maxReached && !isRecording || recorderStatus === "requesting" || recorderStatus === "stopping"}
-                                aria-label={t(isRecording ? "statement.record.stop" : "statement.record.start")}
-                            >
-                                <img src={isRecording ? iconStop : iconMic} alt="" />
-                            </button>
+                        <div className="statement__content">
+                            <div className="statement__topics">
+                                <span className="statement__topics-title">{t("statement.record.topicsTitle")}</span>
+                                <ol className="statement__topics-list">
+                                    {Array.isArray(topics) && topics.map((topic) => (
+                                        <li key={topic}>{topic}</li>
+                                    ))}
+                                </ol>
+                            </div>
 
-                            <span className="statement-recorder__status">
-                                {t(isRecording
-                                    ? "statement.record.listening"
-                                    : isRequestingMicrophone
-                                        ? "statement.record.requestingPermission"
-                                        : maxReached
-                                            ? "statement.record.limitReached"
-                                            : recordings.length
-                                                ? "statement.record.addMore"
-                                                : "statement.record.tapToAnswer")}
-                            </span>
+                            <div className={`statement-recorder ${isRecording ? "is-recording" : ""}`}>
+                                <button
+                                    className="statement-recorder__button"
+                                    type="button"
+                                    onClick={handleRecordButton}
+                                    disabled={(maxReached && !isRecording)
+                                        || recorderStatus === "requesting"
+                                        || recorderStatus === "stopping"}
+                                    aria-label={t(isRecording ? "statement.record.stop" : "statement.record.start")}
+                                >
+                                    <img src={isRecording ? iconStop : iconMic} alt="" />
+                                </button>
 
-                            {isRecording && recordings.length === 0 && (
-                                <p className="statement-recorder__hint">
-                                    {t("statement.record.recordingHint", { count: maxRecordings })}
-                                </p>
-                            )}
+                                <span className="statement-recorder__status">
+                                    {t(isRecording
+                                        ? "statement.record.listening"
+                                        : isRequestingMicrophone
+                                            ? "statement.record.requestingPermission"
+                                            : maxReached
+                                                ? "statement.record.limitReached"
+                                                : recordings.length
+                                                    ? "statement.record.addMore"
+                                                    : "statement.record.tapToAnswer")}
+                                </span>
 
-                            {!isRecording && recordings.length === 0 && (
-                                <p className="statement-recorder__language">
-                                    <img src={iconGlobe} alt="" />
-                                    {t("statement.record.anyLanguage")}
-                                </p>
-                            )}
+                                {isRecording && recordings.length === 0 && (
+                                    <p className="statement-recorder__hint">
+                                        {t("statement.record.recordingHint", { count: maxRecordings })}
+                                    </p>
+                                )}
 
-                            {recorderError && (
-                                <div className="statement-recorder__error" role="alert">
-                                    {recorderError}
-                                </div>
-                            )}
+                                {!isRecording && recordings.length === 0 && (
+                                    <p className="statement-recorder__language">
+                                        <img src={iconGlobe} alt="" />
+                                        {t("statement.record.anyLanguage")}
+                                    </p>
+                                )}
 
-                            {recordings.length > 0 && (
-                                <div className="statement-recordings">
-                                    <span className="statement-recordings__title">
-                                        {t("statement.record.recordingsTitle")}
-                                    </span>
-
-                                    <div className="statement-recordings__list">
-                                        {recordings.map((recording) => (
-                                            <AudioRecording
-                                                key={recording.id}
-                                                recording={recording}
-                                                playback={playback}
-                                                onDelete={handleDelete}
-                                                onToggle={togglePlayback}
-                                            />
-                                        ))}
+                                {recorderError && (
+                                    <div className="statement-recorder__error" role="alert">
+                                        {recorderError}
                                     </div>
-                                </div>
-                            )}
+                                )}
+
+                                {recordings.length > 0 && (
+                                    <div className="statement-recordings">
+                                        <span className="statement-recordings__title">
+                                            {t("statement.record.recordingsTitle")}
+                                        </span>
+
+                                        <div className="statement-recordings__list">
+                                            {recordings.map((recording) => (
+                                                <AudioRecording
+                                                    key={recording.id}
+                                                    recording={recording}
+                                                    playback={playback}
+                                                    onDelete={handleDelete}
+                                                    onToggle={togglePlayback}
+                                                />
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
                         </div>
-                    </div>
 
-                    {isDesktop && (
-                        <div className="statement__button">
-                            <ContinueButton disabled={primaryDisabled} onClick={handlePrimaryAction} />
+                        {isDesktop && (
+                            <div className="statement__button">
+                                <ContinueButton disabled={primaryDisabled} onClick={handlePrimaryAction} />
+                            </div>
+                        )}
+                    </div>
+                </SwiperSlide>
+
+                <SwiperSlide
+                    aria-hidden={statementView !== "result"}
+                    inert={statementView !== "result"}
+                >
+                    <div className="statement-result">
+                        <div className="statement-result__header">
+                            <h3>{t("statement.result.title")}</h3>
+                            <p>{t("statement.result.description")}</p>
                         </div>
-                    )}
-                </div>
-            )}
 
-            {["result", "editing"].includes(screenState) && (
-                <div className="statement-result">
-                    <div className="statement-result__header">
-                        <h3>{t("statement.result.title")}</h3>
-                        <p>{t("statement.result.description")}</p>
-                    </div>
+                        <div className="statement-result__card">
+                            <div className="statement-result__card-header">
+                                <span className="statement-result__label">
+                                    <span className="statement-result__dot"></span>
+                                    {t("statement.result.storyLabel")}
+                                </span>
 
-                    <div className="statement-result__card">
-                        <div className="statement-result__card-header">
-                            <span className="statement-result__label">
-                                <span className="statement-result__dot"></span>
-                                {t("statement.result.storyLabel")}
-                            </span>
+                                {screenState === "editing" ? (
+                                    <button
+                                        className="statement-result__edit is-done"
+                                        type="button"
+                                        onClick={saveEditing}
+                                    >
+                                        <img src={iconCheck} alt="" />
+                                        {t("statement.result.done")}
+                                    </button>
+                                ) : (
+                                    <button
+                                        className="statement-result__edit"
+                                        type="button"
+                                        onClick={() => {
+                                            setDraftText(statementText);
+                                            setEditingError(null);
+                                            setScreenState("editing");
+                                        }}
+                                    >
+                                        <img src={iconEdit} alt="" />
+                                        {t("statement.result.edit")}
+                                    </button>
+                                )}
+                            </div>
 
                             {screenState === "editing" ? (
-                                <button
-                                    className="statement-result__edit is-done"
-                                    type="button"
-                                    onClick={saveEditing}
-                                >
-                                    <img src={iconCheck} alt="" />
-                                    {t("statement.result.done")}
-                                </button>
+                                <textarea
+                                    ref={textareaRef}
+                                    className="statement-result__textarea"
+                                    value={draftText}
+                                    onChange={(event) => setDraftText(event.target.value)}
+                                    aria-label={t("statement.result.storyLabel")}
+                                ></textarea>
                             ) : (
-                                <button
-                                    className="statement-result__edit"
-                                    type="button"
-                                    onClick={() => {
-                                        setDraftText(statementText);
-                                        setEditingError(null);
-                                        setScreenState("editing");
-                                    }}
-                                >
-                                    <img src={iconEdit} alt="" />
-                                    {t("statement.result.edit")}
-                                </button>
+                                <div className="statement-result__text">{statementText}</div>
+                            )}
+
+                            {editingError && (
+                                <div className="statement-result__error" role="alert">{editingError}</div>
                             )}
                         </div>
 
-                        {screenState === "editing" ? (
-                            <textarea
-                                ref={textareaRef}
-                                className="statement-result__textarea"
-                                value={draftText}
-                                onChange={(event) => setDraftText(event.target.value)}
-                                aria-label={t("statement.result.storyLabel")}
-                            ></textarea>
-                        ) : (
-                            <div className="statement-result__text">{statementText}</div>
-                        )}
-
-                        {editingError && (
-                            <div className="statement-result__error" role="alert">{editingError}</div>
+                        {isDesktop && (
+                            <div className="statement__button">
+                                <ContinueButton disabled={primaryDisabled} onClick={handlePrimaryAction} />
+                            </div>
                         )}
                     </div>
-
-                    {isDesktop && (
-                        <div className="statement__button">
-                            <ContinueButton disabled={primaryDisabled} onClick={handlePrimaryAction} />
-                        </div>
-                    )}
-                </div>
-            )}
+                </SwiperSlide>
+            </Swiper>
 
             {["processing", "processing-error"].includes(screenState) && createPortal(
                 <div className="statement-processing" role={screenState === "processing-error" ? "alert" : "status"}>

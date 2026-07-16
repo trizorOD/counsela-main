@@ -4,7 +4,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { steps } from "./data/steps";
-import { getSavedFormData, normalizeLanguage, saveFormData, saveLanguage } from "./utils/storage";
+import {
+    clearSavedData,
+    getSavedFormData,
+    normalizeLanguage,
+    saveFormData,
+    saveLanguage
+} from "./utils/storage";
 import { useIsDesktop, useIsMobile } from "./hooks/useMediaQuery";
 import {
     normalizeCollectedFormData,
@@ -56,6 +62,7 @@ function App() {
 
         loggedCompletionRef.current = fingerprint;
         console.log("Collected form data:", collectedData);
+        clearSavedData();
     }, [currentStep, formData]);
 
     const updateFormData = useCallback((name, value) => {

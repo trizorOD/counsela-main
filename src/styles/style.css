@@ -1766,6 +1766,19 @@ label.case__option input[type="checkbox"]:checked + .case__option-box .case__opt
     padding-top: 44px;
 }
 
+.statement-slides {
+    width: 100%;
+    overflow: hidden;
+}
+
+.statement-slides > .swiper-wrapper {
+    align-items: flex-start;
+}
+
+.statement-slides > .swiper-wrapper > .swiper-slide {
+    height: auto;
+}
+
 .statement__header,
 .statement-result__header {
     max-width: 760px;
