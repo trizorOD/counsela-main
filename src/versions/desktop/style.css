@@ -1,0 +1,35 @@
+@media (min-width: 768px) and (max-width: 900px) {
+    .statement__content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .statement__topics,
+    .statement-recorder {
+        width: 100%;
+        max-width: 620px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
+@media (min-width: 768px) {
+    .header {
+        position: relative;
+        z-index: 2;
+        height: 76px;
+    }
+
+    .wrapper.content .progress {
+        position: absolute;
+        top: 88px;
+        left: 50%;
+        width: 100%;
+        margin: 0;
+        transform: translateX(-50%);
+    }
+
+    .wrapper.content .screen {
+        padding-top: 107px;
+    }
+}

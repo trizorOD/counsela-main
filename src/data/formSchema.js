@@ -12,14 +12,13 @@ export const formSchema = {
         defaultValue: defaultLanguage,
         valueType: "string"
     },
-    cases: {
-        defaultValue: [],
-        valueType: "array",
+    case: {
+        defaultValue: "",
+        valueType: "string",
         rules: [
             {
-                type: "minItems",
-                value: 1,
-                messageKey: "validation.selectAtLeastOne"
+                type: "required",
+                messageKey: "validation.selectOne"
             }
         ]
     },

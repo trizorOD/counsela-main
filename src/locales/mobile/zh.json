@@ -1,0 +1,144 @@
+{
+  "common": {
+    "title": "Counsela",
+    "others": "其他",
+    "vs": "对比",
+    "continue": "继续",
+    "back": "返回"
+  },
+  "progress": {
+    "step": "步骤",
+    "of": "共"
+  },
+  "steps": {
+    "language": "语言",
+    "focus": "专注",
+    "communication": "沟通",
+    "price": "价格",
+    "credentials": "资质",
+    "case": "您的案件"
+  },
+  "language": {
+    "tagline": "Counsela · 移民律师",
+    "title": "把您当作一个人来对待的移民帮助，而不是一个案件编号。",
+    "description": "持有美国执照的移民律师，会根据您的具体情况匹配，并在整个过程中有人陪在您身边。",
+    "languageSelectionTitle": "我们说您的语言。",
+    "info": {
+      "firstText": "免费案件评估",
+      "secondaryText": "大约需要 3 分钟"
+    }
+  },
+  "focus": {
+    "title": "最适合您具体案件的律师。",
+    "description": "移民法涵盖数十种不同类型的案件。我们为您匹配专门处理您这类案件的律师。",
+    "areas": [
+      "EB-1",
+      "H-1B",
+      "家庭",
+      "庇护",
+      "辩护",
+      "F-1"
+    ],
+    "team": {
+      "title": "您的 H-1B 团队",
+      "members": [
+        {
+          "name": "Priya Raman",
+          "role": "H-1B 与 LCA 律师助理"
+        },
+        {
+          "name": "Marcus Lindqvist",
+          "role": "工作签证律师"
+        },
+        {
+          "name": "Hanna Lee",
+          "role": "工作签证律师"
+        }
+      ],
+      "more": "+136 名律师"
+    },
+    "summary": "由数百名经过审核的律师组成的网络。"
+  },
+  "communication": {
+    "title": "差别在于沟通。",
+    "description": "移民过程中最难的是沉默。我们会消除这种沉默。",
+    "specialist": {
+      "name": "Maria R.",
+      "role": "您的案件专员"
+    },
+    "online": "在线",
+    "reply": "好消息：您的 RFE 回复已经准备好了。请查看。",
+    "responseTime": "2 小时内回复，而不是 2 周",
+    "summary": "一位了解您档案的案件专员，会回答您的问题，通常是几小时内，而不是几周后。"
+  },
+  "price": {
+    "title": "差别在于价格。",
+    "description": "AI 让法律工作更快、更便宜。我们把这种节省转给您。",
+    "saving": "平均费用更低",
+    "features": {
+      "quoted": "提前报价",
+      "flat": "固定费用",
+      "noSurprises": "没有按小时收费的意外"
+    },
+    "summary": "我们从第一天起就围绕 AI 建立公司，并把节省转给您：平均费用低 20%，提前报价。没有按小时收费的意外。"
+  },
+  "credentials": {
+    "badge": "已验证律师",
+    "title": "您的案件将由持照律师处理。就是这样。",
+    "description": "每位 Counsela 律师都持有执业执照，拥有职业责任保险，并在您带来的具体案件类型中有真实经验。",
+    "attorney": {
+      "title": "您的移民律师",
+      "description": "持照、有保险且经验丰富"
+    },
+    "items": [
+      {
+        "title": "持照且信誉良好",
+        "description": "已验证的有效律师协会会员资格"
+      },
+      {
+        "title": "职业责任保险",
+        "description": "档案中已确认保险覆盖"
+      },
+      {
+        "title": "细分领域经验",
+        "description": "在您准确类别中的真实案件经验"
+      },
+      {
+        "title": "由 Counsela 审核",
+        "description": "在为您匹配之前已完成筛选"
+      }
+    ],
+    "notice": "他们看到您的档案前，这三项都已验证。"
+  },
+  "case": {
+    "title": "您今天来这里是为了什么？",
+    "description": "选择最接近的选项，下一步您可以解释细节。",
+    "options": [
+      {
+        "value": "family",
+        "label": "家庭",
+        "description": "我想把家人带到美国，或在美国与家人团聚。"
+      },
+      {
+        "value": "work-business",
+        "label": "工作与商业",
+        "description": "我想在美国工作、投资或创业。"
+      },
+      {
+        "value": "protection",
+        "label": "保护",
+        "description": "我需要安全保护或人道主义帮助。"
+      },
+      {
+        "value": "defense",
+        "label": "抗辩",
+        "description": "我正面临驱逐、拒绝或其他法律问题。"
+      },
+      {
+        "value": "other",
+        "label": "不确定 / 其他",
+        "description": "我的情况不符合这些选项，或者我不知道从哪里开始。"
+      }
+    ]
+  }
+}

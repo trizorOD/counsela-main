@@ -1,0 +1,144 @@
+{
+  "common": {
+    "title": "Counsela",
+    "others": "Lòt",
+    "vs": "kont",
+    "continue": "Kontinye",
+    "back": "Retounen"
+  },
+  "progress": {
+    "step": "Etap",
+    "of": "sou"
+  },
+  "steps": {
+    "language": "Lang",
+    "focus": "Konsantrasyon",
+    "communication": "Kominikasyon",
+    "price": "Pri",
+    "credentials": "Kalifikasyon",
+    "case": "Ka ou"
+  },
+  "language": {
+    "tagline": "Counsela · Avoka imigrasyon",
+    "title": "Èd imigrasyon ki trete w tankou yon moun, pa tankou yon nimewo dosye.",
+    "description": "Avoka imigrasyon Ozetazini ki gen lisans, matche ak sitiyasyon egzak ou, ak yon moun bò kote w pandan tout pwosesis la.",
+    "languageSelectionTitle": "Nou pale lang ou.",
+    "info": {
+      "firstText": "Revizyon ka gratis",
+      "secondaryText": "Sa pran anviwon 3 minit"
+    }
+  },
+  "focus": {
+    "title": "Bon avoka a pou ka egzak ou.",
+    "description": "Lwa imigrasyon gen plizyè dizèn kalite ka diferan. Nou konekte w ak yon avoka ki konsantre egzakteman sou pa w la.",
+    "areas": [
+      "EB-1",
+      "H-1B",
+      "Fanmi",
+      "Azil",
+      "Defans",
+      "F-1"
+    ],
+    "team": {
+      "title": "Ekip H-1B ou",
+      "members": [
+        {
+          "name": "Priya Raman",
+          "role": "Asistan legal H-1B ak LCA"
+        },
+        {
+          "name": "Marcus Lindqvist",
+          "role": "Avoka viza travay"
+        },
+        {
+          "name": "Hanna Lee",
+          "role": "Avoka viza travay"
+        }
+      ],
+      "more": "+136 avoka"
+    },
+    "summary": "Yon rezo plizyè santèn avoka verifye."
+  },
+  "communication": {
+    "title": "Diferans lan se kominikasyon.",
+    "description": "Pati ki pi difisil nan imigrasyon se silans lan. Nou retire li.",
+    "specialist": {
+      "name": "Maria R.",
+      "role": "Espesyalis ka ou"
+    },
+    "online": "Anliy",
+    "reply": "Bon nouvèl: repons RFE ou a pare. Tanpri gade l.",
+    "responseTime": "Reponn nan 2 èdtan, pa 2 semèn",
+    "summary": "Yon espesyalis ka ki konnen dosye w epi ki reponn kesyon w yo, anjeneral nan kèk èdtan, pa nan kèk semèn."
+  },
+  "price": {
+    "title": "Diferans lan se pri.",
+    "description": "AI fè travay legal vin pi rapid ak pi bon mache. Se nou menm ki pase avantaj sa a ba ou.",
+    "saving": "frè pi ba, an mwayèn",
+    "features": {
+      "quoted": "Pri bay davans",
+      "flat": "Frè fiks",
+      "noSurprises": "Pa gen sipriz pa èdtan"
+    },
+    "summary": "Nou bati konpayi nou an sou AI depi premye jou a, epi nou pase ekonomi an ba ou: an mwayèn frè yo 20% pi ba, ak pri a bay davans. Pa gen sipriz pa èdtan."
+  },
+  "credentials": {
+    "badge": "Avoka verifye",
+    "title": "Yon avoka ki gen lisans ap okipe ka ou. Pwen final.",
+    "description": "Chak avoka Counsela gen lisans pou pratike, gen asirans responsablite pwofesyonèl, epi gen eksperyans reyèl nan kalite ka espesifik ou pote ban nou an.",
+    "attorney": {
+      "title": "Avoka imigrasyon ou",
+      "description": "Gen lisans, gen asirans ak eksperyans"
+    },
+    "items": [
+      {
+        "title": "Gen lisans epi an règ",
+        "description": "Manm ba aktif, verifye"
+      },
+      {
+        "title": "Asirans responsablite pwofesyonèl",
+        "description": "Kouvèti konfime nan dosye a"
+      },
+      {
+        "title": "Eksperyans nan domèn espesifik",
+        "description": "Ka reyèl nan kategori egzak ou a"
+      },
+      {
+        "title": "Verifye pa Counsela",
+        "description": "Tcheke anvan nou janm matche w"
+      }
+    ],
+    "notice": "Tout twa verifye anvan yo janm wè dosye w."
+  },
+  "case": {
+    "title": "Ki sa ki mennen w isit la jodi a?",
+    "description": "Chwazi sa ki pi pre a; ou ka eksplike detay yo nan pwochen etap la.",
+    "options": [
+      {
+        "value": "family",
+        "label": "Fanmi",
+        "description": "Mwen vle mennen oswa rejwenn fanmi Ozetazini."
+      },
+      {
+        "value": "work-business",
+        "label": "Travay ak biznis",
+        "description": "Mwen vle travay, envesti, oswa kòmanse yon biznis Ozetazini."
+      },
+      {
+        "value": "protection",
+        "label": "Pwoteksyon",
+        "description": "Mwen bezwen sekirite oswa èd imanitè."
+      },
+      {
+        "value": "defense",
+        "label": "Defans",
+        "description": "M ap fè fas ak depòtasyon, yon refi, oswa yon lòt pwoblèm legal."
+      },
+      {
+        "value": "other",
+        "label": "Pa sèten / Lòt",
+        "description": "Sitiyasyon mwen pa antre ladan l, oswa mwen pa konnen ki kote pou m kòmanse."
+      }
+    ]
+  }
+}

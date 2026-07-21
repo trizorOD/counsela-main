@@ -38,21 +38,6 @@ export const languages = [
         code: "ar",
         label: "العربية",
         statementLanguage: "Arabic"
-    },
-    {
-        code: "hi",
-        label: "हिन्दी",
-        statementLanguage: "Hindi"
-    },
-    {
-        code: "vi",
-        label: "Tiếng Việt",
-        statementLanguage: "Vietnamese"
-    },
-    {
-        code: "tl",
-        label: "Tagalog",
-        statementLanguage: "Tagalog"
     }
 ];
 

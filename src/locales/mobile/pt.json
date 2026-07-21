@@ -1,0 +1,144 @@
+{
+  "common": {
+    "title": "Counsela",
+    "others": "Outros",
+    "vs": "vs",
+    "continue": "Continuar",
+    "back": "Voltar"
+  },
+  "progress": {
+    "step": "Etapa",
+    "of": "de"
+  },
+  "steps": {
+    "language": "Idioma",
+    "focus": "Foco",
+    "communication": "Comunicação",
+    "price": "Preço",
+    "credentials": "Credenciais",
+    "case": "Seu caso"
+  },
+  "language": {
+    "tagline": "Counsela · Advogados de imigração",
+    "title": "Ajuda imigratória que trata você como uma pessoa, não como um número de caso.",
+    "description": "Advogados de imigração dos EUA licenciados, indicados para a sua situação exata, com alguém ao seu lado durante todo o caminho.",
+    "languageSelectionTitle": "Falamos o seu idioma.",
+    "info": {
+      "firstText": "Análise gratuita do caso",
+      "secondaryText": "Leva cerca de 3 minutos"
+    }
+  },
+  "focus": {
+    "title": "O advogado certo para o seu caso exato.",
+    "description": "O direito de imigração abrange dezenas de casos diferentes. Conectamos você a um advogado especializado exatamente no seu.",
+    "areas": [
+      "EB-1",
+      "H-1B",
+      "Família",
+      "Asilo",
+      "Defesa",
+      "F-1"
+    ],
+    "team": {
+      "title": "Sua equipe de H-1B",
+      "members": [
+        {
+          "name": "Priya Raman",
+          "role": "Assistente jurídica de H-1B e LCA"
+        },
+        {
+          "name": "Marcus Lindqvist",
+          "role": "Advogado de vistos de trabalho"
+        },
+        {
+          "name": "Hanna Lee",
+          "role": "Advogada de vistos de trabalho"
+        }
+      ],
+      "more": "+136 advogados"
+    },
+    "summary": "Uma rede de centenas de advogados verificados."
+  },
+  "communication": {
+    "title": "A diferença está na comunicação.",
+    "description": "A parte mais difícil da imigração é o silêncio. Nós removemos isso.",
+    "specialist": {
+      "name": "Maria R.",
+      "role": "Seu especialista do caso"
+    },
+    "online": "Online",
+    "reply": "Boas notícias: sua resposta ao RFE está pronta. Por favor, revise.",
+    "responseTime": "Respondemos em 2 horas, não em 2 semanas",
+    "summary": "Um especialista do caso que conhece seu arquivo e responde às suas perguntas, geralmente em horas, não semanas."
+  },
+  "price": {
+    "title": "A diferença está no preço.",
+    "description": "A IA tornou o trabalho jurídico mais rápido e barato. Nós repassamos essa economia para você.",
+    "saving": "honorários menores, em média",
+    "features": {
+      "quoted": "Informado antecipadamente",
+      "flat": "Valor fixo",
+      "noSurprises": "Sem surpresas por hora"
+    },
+    "summary": "Construímos nossa empresa em torno da IA desde o primeiro dia e repassamos a economia para você: em média, honorários 20% menores, informados antecipadamente. Sem surpresas por hora."
+  },
+  "credentials": {
+    "badge": "Advogados verificados",
+    "title": "Seu caso será conduzido por um advogado licenciado. Ponto final.",
+    "description": "Todo advogado da Counsela é licenciado para atuar, possui seguro de responsabilidade profissional e tem experiência real no tipo específico de caso que você traz para nós.",
+    "attorney": {
+      "title": "Seu advogado de imigração",
+      "description": "Licenciado, segurado e experiente"
+    },
+    "items": [
+      {
+        "title": "Licenciado e regular",
+        "description": "Registro ativo na ordem, verificado"
+      },
+      {
+        "title": "Seguro de responsabilidade profissional",
+        "description": "Cobertura confirmada no arquivo"
+      },
+      {
+        "title": "Experiência especializada",
+        "description": "Casos reais na sua categoria exata"
+      },
+      {
+        "title": "Verificado pela Counsela",
+        "description": "Avaliado antes de indicarmos para você"
+      }
+    ],
+    "notice": "Todos os três são verificados antes de verem seu arquivo."
+  },
+  "case": {
+    "title": "O que traz você aqui hoje?",
+    "description": "Escolha a opção mais próxima; você poderá explicar os detalhes na próxima etapa.",
+    "options": [
+      {
+        "value": "family",
+        "label": "Família",
+        "description": "Quero trazer ou me juntar à família nos EUA."
+      },
+      {
+        "value": "work-business",
+        "label": "Trabalho e negócios",
+        "description": "Quero trabalhar, investir ou abrir um negócio nos EUA."
+      },
+      {
+        "value": "protection",
+        "label": "Proteção",
+        "description": "Preciso de segurança ou ajuda humanitária."
+      },
+      {
+        "value": "defense",
+        "label": "Defesa",
+        "description": "Estou enfrentando deportação, uma negativa ou outro problema jurídico."
+      },
+      {
+        "value": "other",
+        "label": "Não tenho certeza / Outro",
+        "description": "Minha situação não se encaixa, ou não sei por onde começar."
+      }
+    ]
+  }
+}
