@@ -501,10 +501,6 @@
         margin: 8px 0 0;
     }
 
-    .wrapper.content .screen--contact {
-        padding: 94px 0 42px;
-    }
-
     .contact__header h3 {
         font-size: 32px;
         line-height: 116%;
@@ -538,10 +534,6 @@
 
     .contact__privacy {
         margin: 21px 0 25px;
-    }
-
-    .wrapper.content .screen--done {
-        padding: 94px 0 48px;
     }
 
     .done__check {
