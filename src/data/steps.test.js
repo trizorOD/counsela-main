@@ -7,7 +7,7 @@ const expectedStepIds = [
     "focus",
     "communication",
     "price",
-    "credentials",
+    // "credentials",
     "case",
     "statementRecord",
     "statementResult",

@@ -31,7 +31,7 @@ export function createStatementPrompt(languageCode) {
 
     if (!statementLanguage) {
         throw new TypeError(`Unsupported statement language: ${languageCode}`);
-    }
+    } git
 
     return `You are an assistant helping a user prepare a clear factual statement about their situation.
 

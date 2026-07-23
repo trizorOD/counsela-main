@@ -3,7 +3,7 @@ import { screenControllers } from "../../app/screenControllers";
 import CaseScreen from "./screens/CaseScreen";
 import CommunicationScreen from "./screens/CommunicationScreen";
 import ContactScreen from "./screens/ContactScreen";
-import CredentialsScreen from "./screens/CredentialsScreen";
+// import CredentialsScreen from "./screens/CredentialsScreen";
 import DoneScreen from "./screens/DoneScreen";
 import FocusScreen from "./screens/FocusScreen";
 import LanguageScreen from "./screens/LanguageScreen";
@@ -15,7 +15,7 @@ export const desktopSteps = createSteps({
     case: CaseScreen,
     communication: CommunicationScreen,
     contact: ContactScreen,
-    credentials: CredentialsScreen,
+    // credentials: CredentialsScreen,
     done: DoneScreen,
     focus: FocusScreen,
     language: LanguageScreen,

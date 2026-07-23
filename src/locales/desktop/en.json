@@ -325,10 +325,10 @@
             }
         ],
         "contact": {
-            "whatsapp": "We'll reach you on WhatsApp within 24 business hours.",
-            "telegram": "We'll reach you on Telegram within 24 business hours.",
-            "sms": "We'll reach you via SMS within 24 business hours.",
-            "phone": "We'll call you within 24 business hours."
+            "whatsapp": "We'll reach you on WhatsApp soon",
+            "telegram": "We'll reach you on Telegram soon",
+            "sms": "We'll reach you via SMS soon",
+            "phone": "We'll call you soon"
         }
     }
 }

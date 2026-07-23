@@ -15,10 +15,10 @@ const stepDefinitions = [
         id: "price",
         titleKey: "steps.price"
     },
-    {
-        id: "credentials",
-        titleKey: "steps.credentials"
-    },
+    // {
+    //     id: "credentials",
+    //     titleKey: "steps.credentials"
+    // },
     {
         id: "case",
         titleKey: "steps.case",
