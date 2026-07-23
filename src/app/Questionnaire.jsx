@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Swiper, SwiperSlide } from "swiper/react";
+import gsap from "gsap";
 import { StatementFlowProvider } from "../features/statement/StatementFlowProvider.jsx";
 import {
     clearSavedData,
@@ -21,6 +22,9 @@ function Questionnaire({ version }) {
     const { Footer, Header, steps } = version;
     const swiperRef = useRef(null);
     const loggedCompletionRef = useRef("");
+    const activeTransitionRef = useRef(null);
+    const transitionDurationRef = useRef(0);
+    const pendingFromHeightRef = useRef(null);
     const [activeStep, setActiveStep] = useState(0);
     const [formData, setFormData] = useState(getSavedFormData);
     const [backNavigation, setBackNavigation] = useState(null);
@@ -128,6 +132,7 @@ function Questionnaire({ version }) {
             return;
         }
 
+        pendingFromHeightRef.current = swiperRef.current.wrapperEl.offsetHeight;
         swiperRef.current.slideTo(stepIndex);
     }, [totalSteps]);
 
@@ -174,13 +179,83 @@ function Questionnaire({ version }) {
         goToStep(activeStep - 1);
     }, [activeStep, goToStep]);
 
-    const handleTransitionStart = useCallback(() => {
+    const handleSetTransition = useCallback((swiper, duration) => {
+        transitionDurationRef.current = duration;
+        // Swiper still applies its own CSS transition-duration for height even in
+        // virtualTranslate mode; zero it out so it can't fight the GSAP height tween.
+        swiper.wrapperEl.style.transitionDuration = "0ms";
+    }, []);
+
+    const handleTransitionStart = useCallback((swiper) => {
         window.scrollTo({
             left: 0,
             top: 0,
             behavior: "auto"
         });
+
+        activeTransitionRef.current?.kill();
+
+        const outgoingEl = swiper.slides[swiper.previousIndex];
+        const incomingEl = swiper.slides[swiper.activeIndex];
+        const duration = transitionDurationRef.current;
+
+        // Swiper's autoHeight already snapped wrapperEl's height synchronously
+        // (transitionStart -> updateAutoHeight, before this event fires). Flip it
+        // back to the pre-transition height and let GSAP morph it forward, since we
+        // zeroed the CSS transition that used to animate height for us.
+        const fromHeight = pendingFromHeightRef.current;
+        const toHeight = swiper.wrapperEl.offsetHeight;
+
+        pendingFromHeightRef.current = null;
+
+        // Keep both slides paintable for the duration of the crossfade regardless
+        // of Swiper's own active-slide class bookkeeping (which already flipped to
+        // the new index by this point).
+        outgoingEl.style.visibility = "visible";
+        incomingEl.style.visibility = "visible";
+        incomingEl.style.zIndex = 2;
+        outgoingEl.style.zIndex = 1;
+
+        const resetInlineStyles = () => {
+            outgoingEl.style.visibility = "";
+            outgoingEl.style.zIndex = "";
+            incomingEl.style.zIndex = "";
+            gsap.set(outgoingEl, { opacity: 1 });
+        };
+
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        if (duration === 0 || prefersReducedMotion) {
+            gsap.set(incomingEl, { opacity: 1 });
+            gsap.set(swiper.wrapperEl, { height: toHeight });
+            resetInlineStyles();
+            return;
+        }
+
+        const tl = gsap.timeline({
+            onComplete: () => {
+                resetInlineStyles();
+                swiper.wrapperEl.dispatchEvent(new CustomEvent("transitionend", {
+                    bubbles: true,
+                    cancelable: true
+                }));
+            }
+        });
+        const tweenDuration = duration / 1000;
+
+        gsap.set(incomingEl, { opacity: 0 });
+        tl.to(incomingEl, { opacity: 1, duration: tweenDuration, ease: "power3.out" }, 0);
+        tl.to(outgoingEl, { opacity: 0, duration: tweenDuration, ease: "power3.out" }, 0);
+
+        if (fromHeight != null && fromHeight !== toHeight) {
+            gsap.set(swiper.wrapperEl, { height: fromHeight });
+            tl.to(swiper.wrapperEl, { height: toHeight, duration: tweenDuration, ease: "power3.out" }, 0);
+        }
+
+        activeTransitionRef.current = tl;
     }, []);
+
+    useEffect(() => () => activeTransitionRef.current?.kill(), []);
 
     const activeScreenNavigation = screenNavigation?.stepId === currentStep.id
         ? screenNavigation
@@ -219,6 +294,7 @@ function Questionnaire({ version }) {
                             preventInteractionOnTransition={true}
                             speed={300}
                             spaceBetween={48}
+                            virtualTranslate={true}
                             onSwiper={(swiper) => {
                                 swiperRef.current = swiper;
                             }}
@@ -226,6 +302,7 @@ function Questionnaire({ version }) {
                                 setActiveStep(swiper.activeIndex);
                             }}
                             onSlideChangeTransitionStart={handleTransitionStart}
+                            onSetTransition={handleSetTransition}
                         >
                             {steps.map((step) => {
                                 const isCurrentStep = step.id === currentStep.id;

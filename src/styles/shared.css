@@ -289,6 +289,25 @@ h4 {
     overflow: clip;
 }
 
+/* Slides are stacked on top of each other (instead of Swiper's default side-by-side
+   row) so the crossfade transition in Questionnaire.jsx can overlap them in place. */
+.screens .swiper-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* Swiper still sets an inline width on each slide from its own (unused, now
+       purely internal) layout math; override it so slides always match the
+       container regardless of what Swiper computes. */
+    width: 100% !important;
+    z-index: 1;
+    visibility: hidden;
+}
+
+.screens .swiper-slide-active {
+    z-index: 2;
+    visibility: visible;
+}
+
 .screen {
     padding: 36px 0 40px;
 }
