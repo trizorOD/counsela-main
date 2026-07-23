@@ -15,7 +15,6 @@
         "focus": "Focus",
         "communication": "Communication",
         "price": "Price",
-        "credentials": "Credentials",
         "case": "Your case",
         "statement": "Your statement",
         "contact": "Contact"
@@ -135,34 +134,6 @@
             "flat": "Flat fee",
             "noSurprises": "No hourly surprises"
         }
-    },
-    "credentials": {
-        "badge": "Verified attorneys",
-        "title": "Your case will be handled by a licensed attorney. Full stop.",
-        "description": "Every Counsela attorney is licensed to practice, carries malpractice insurance, and has real experience in the specific type of case you bring us.",
-        "attorney": {
-            "title": "Your immigration attorney",
-            "description": "Licensed, insured & experienced"
-        },
-        "items": [
-            {
-                "title": "Licensed & in good standing",
-                "description": "Active bar membership, verified"
-            },
-            {
-                "title": "Malpractice insured",
-                "description": "Coverage confirmed on file"
-            },
-            {
-                "title": "Niche-experienced",
-                "description": "Real cases in your exact category"
-            },
-            {
-                "title": "Vetted by Counsela",
-                "description": "Screened before we ever match you"
-            }
-        ],
-        "notice": "All three verified before they ever see your file."
     },
     "case": {
         "title": "Tell us about your case.",

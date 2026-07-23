@@ -1,157 +1,128 @@
 {
-  "common": {
-    "title": "Counsela",
-    "others": "Lòt",
-    "vs": "kont",
-    "continue": "Kontinye",
-    "back": "Retounen"
-  },
-  "progress": {
-    "step": "Etap",
-    "of": "sou"
-  },
-  "steps": {
-    "language": "Lang",
-    "focus": "Konsantrasyon",
-    "communication": "Kominikasyon",
-    "price": "Pri",
-    "credentials": "Kalifikasyon",
-    "case": "Ka ou"
-  },
-  "language": {
-    "tagline": "Counsela · Avoka imigrasyon",
-    "title": "Èd imigrasyon ki trete w tankou yon moun, pa tankou yon nimewo dosye.",
-    "description": "Avoka imigrasyon Ozetazini ki gen lisans, matche ak sitiyasyon egzak ou, ak yon moun bò kote w pandan tout pwosesis la.",
-    "languageSelectionTitle": "Nou pale lang ou.",
-    "info": {
-      "firstText": "Revizyon ka gratis",
-      "secondaryText": "Sa pran anviwon 3 minit"
+    "common": {
+        "title": "Counsela",
+        "others": "Lòt",
+        "vs": "kont",
+        "continue": "Kontinye",
+        "back": "Retounen"
+    },
+    "progress": {
+        "step": "Etap",
+        "of": "sou"
+    },
+    "steps": {
+        "language": "Lang",
+        "focus": "Konsantrasyon",
+        "communication": "Kominikasyon",
+        "price": "Pri",
+        "case": "Ka ou"
+    },
+    "language": {
+        "tagline": "Counsela · Avoka imigrasyon",
+        "title": "Èd imigrasyon ki trete w tankou yon moun, pa tankou yon nimewo dosye.",
+        "description": "Avoka imigrasyon Ozetazini ki gen lisans, matche ak sitiyasyon egzak ou, ak yon moun bò kote w pandan tout pwosesis la.",
+        "languageSelectionTitle": "Nou pale lang ou.",
+        "info": {
+            "firstText": "Revizyon ka gratis",
+            "secondaryText": "Sa pran anviwon 3 minit"
+        }
+    },
+    "focus": {
+        "title": "Diferans lan se konsantrasyon.",
+        "description": "Lwa imigrasyon pa yon sèl travay. Moun yo matche avè w la chanje tout bagay.",
+        "compare": {
+            "negativeText": "Yon ti kabinè 1–4 avoka, ki gaye sou tout kalite ka imigrasyon.",
+            "positiveText": "Yon rezo plizyè santèn avoka verifye, chak moun konsantre sou ka egzakteman tankou pa w la."
+        },
+        "coverage": {
+            "count": "1–4 avoka",
+            "areas": [
+                "EB-1",
+                "Azil",
+                "H-1B",
+                "Green Card",
+                "O-1",
+                "Fanmi",
+                "Etidyan",
+                "TPS",
+                "L-1",
+                "Sitwayènte"
+            ]
+        },
+        "network": {
+            "title": "Kalite ka ou",
+            "badge": "+ plizyè santèn",
+            "caption": "tout konsantre sou ka tankou pa w la"
+        }
+    },
+    "communication": {
+        "title": "Diferans lan se kominikasyon.",
+        "description": "Pati ki pi difisil nan imigrasyon se silans lan. Nou retire li.",
+        "compare": {
+            "negativeText": "Apèl san repons. Semèn silans. Pèsonn pou di w sa k ap pase ak lavi w.",
+            "positiveText": "Yon espesyalis ka ki konnen dosye w epi ki reponn kesyon w yo, anjeneral nan kèk èdtan, pa nan kèk semèn."
+        },
+        "missedCall": "Apèl rate",
+        "day": "Lendi",
+        "clientMessage": "Gen nouvèl sou ka mwen an?",
+        "noReply": "Pa gen repons · 1 semèn",
+        "specialist": {
+            "name": "Maria R.",
+            "role": "Espesyalis ka ou"
+        },
+        "online": "Anliy",
+        "reply": "Bon nouvèl: repons RFE ou a pare. Tanpri gade l.",
+        "response": {
+            "time": "Reponn nan 2 èdtan",
+            "note": "Nou mete w ajou nan chak etap"
+        }
+    },
+    "price": {
+        "title": "Diferans lan se pri.",
+        "description": "AI fè travay legal vin pi rapid ak pi bon mache. Se nou menm ki pase avantaj sa a ba ou.",
+        "compare": {
+            "negativeText": "Anpil kabinè deja itilize AI pou fè travay la pi vit, men yo toujou fè w peye ansyen pri a.",
+            "positiveText": "Nou bati konpayi nou an sou AI depi premye jou a, epi nou pase ekonomi an ba ou: an mwayèn frè yo 20% pi ba, ak pri a bay davans. Pa gen sipriz pa èdtan."
+        },
+        "aiBadge": "Itilize AI pou travay pi vit",
+        "sameOldPrice": "Menm ansyen pri a",
+        "saving": "frè pi ba, an mwayèn",
+        "discount": "−20% davans",
+        "features": {
+            "quoted": "Pri bay davans",
+            "flat": "Frè fiks",
+            "noSurprises": "Pa gen sipriz pa èdtan"
+        }
+    },
+    "case": {
+        "title": "Ki sa ki mennen w isit la jodi a?",
+        "description": "Chwazi sa ki pi pre a; ou ka eksplike detay yo nan pwochen etap la.",
+        "options": [
+            {
+                "value": "family",
+                "label": "Fanmi",
+                "description": "Mwen vle mennen oswa rejwenn fanmi Ozetazini."
+            },
+            {
+                "value": "work-business",
+                "label": "Travay ak biznis",
+                "description": "Mwen vle travay, envesti, oswa kòmanse yon biznis Ozetazini."
+            },
+            {
+                "value": "protection",
+                "label": "Pwoteksyon",
+                "description": "Mwen bezwen sekirite oswa èd imanitè."
+            },
+            {
+                "value": "defense",
+                "label": "Defans",
+                "description": "M ap fè fas ak depòtasyon, yon refi, oswa yon lòt pwoblèm legal."
+            },
+            {
+                "value": "other",
+                "label": "Pa sèten / Lòt",
+                "description": "Sitiyasyon mwen pa antre ladan l, oswa mwen pa konnen ki kote pou m kòmanse."
+            }
+        ]
     }
-  },
-  "focus": {
-    "title": "Diferans lan se konsantrasyon.",
-    "description": "Lwa imigrasyon pa yon sèl travay. Moun yo matche avè w la chanje tout bagay.",
-    "compare": {
-      "negativeText": "Yon ti kabinè 1–4 avoka, ki gaye sou tout kalite ka imigrasyon.",
-      "positiveText": "Yon rezo plizyè santèn avoka verifye, chak moun konsantre sou ka egzakteman tankou pa w la."
-    },
-    "coverage": {
-      "count": "1–4 avoka",
-      "areas": [
-        "EB-1",
-        "Azil",
-        "H-1B",
-        "Green Card",
-        "O-1",
-        "Fanmi",
-        "Etidyan",
-        "TPS",
-        "L-1",
-        "Sitwayènte"
-      ]
-    },
-    "network": {
-      "title": "Kalite ka ou",
-      "badge": "+ plizyè santèn",
-      "caption": "tout konsantre sou ka tankou pa w la"
-    }
-  },
-  "communication": {
-    "title": "Diferans lan se kominikasyon.",
-    "description": "Pati ki pi difisil nan imigrasyon se silans lan. Nou retire li.",
-    "compare": {
-      "negativeText": "Apèl san repons. Semèn silans. Pèsonn pou di w sa k ap pase ak lavi w.",
-      "positiveText": "Yon espesyalis ka ki konnen dosye w epi ki reponn kesyon w yo, anjeneral nan kèk èdtan, pa nan kèk semèn."
-    },
-    "missedCall": "Apèl rate",
-    "day": "Lendi",
-    "clientMessage": "Gen nouvèl sou ka mwen an?",
-    "noReply": "Pa gen repons · 1 semèn",
-    "specialist": {
-      "name": "Maria R.",
-      "role": "Espesyalis ka ou"
-    },
-    "online": "Anliy",
-    "reply": "Bon nouvèl: repons RFE ou a pare. Tanpri gade l.",
-    "response": {
-      "time": "Reponn nan 2 èdtan",
-      "note": "Nou mete w ajou nan chak etap"
-    }
-  },
-  "price": {
-    "title": "Diferans lan se pri.",
-    "description": "AI fè travay legal vin pi rapid ak pi bon mache. Se nou menm ki pase avantaj sa a ba ou.",
-    "compare": {
-      "negativeText": "Anpil kabinè deja itilize AI pou fè travay la pi vit, men yo toujou fè w peye ansyen pri a.",
-      "positiveText": "Nou bati konpayi nou an sou AI depi premye jou a, epi nou pase ekonomi an ba ou: an mwayèn frè yo 20% pi ba, ak pri a bay davans. Pa gen sipriz pa èdtan."
-    },
-    "aiBadge": "Itilize AI pou travay pi vit",
-    "sameOldPrice": "Menm ansyen pri a",
-    "saving": "frè pi ba, an mwayèn",
-    "discount": "−20% davans",
-    "features": {
-      "quoted": "Pri bay davans",
-      "flat": "Frè fiks",
-      "noSurprises": "Pa gen sipriz pa èdtan"
-    }
-  },
-  "credentials": {
-    "badge": "Avoka verifye",
-    "title": "Yon avoka ki gen lisans ap okipe ka ou. Pwen final.",
-    "description": "Chak avoka Counsela gen lisans pou pratike, gen asirans responsablite pwofesyonèl, epi gen eksperyans reyèl nan kalite ka espesifik ou pote ban nou an.",
-    "attorney": {
-      "title": "Avoka imigrasyon ou",
-      "description": "Gen lisans, gen asirans ak eksperyans"
-    },
-    "items": [
-      {
-        "title": "Gen lisans epi an règ",
-        "description": "Manm ba aktif, verifye"
-      },
-      {
-        "title": "Asirans responsablite pwofesyonèl",
-        "description": "Kouvèti konfime nan dosye a"
-      },
-      {
-        "title": "Eksperyans nan domèn espesifik",
-        "description": "Ka reyèl nan kategori egzak ou a"
-      },
-      {
-        "title": "Verifye pa Counsela",
-        "description": "Tcheke anvan nou janm matche w"
-      }
-    ],
-    "notice": "Tout twa verifye anvan yo janm wè dosye w."
-  },
-  "case": {
-    "title": "Ki sa ki mennen w isit la jodi a?",
-    "description": "Chwazi sa ki pi pre a; ou ka eksplike detay yo nan pwochen etap la.",
-    "options": [
-      {
-        "value": "family",
-        "label": "Fanmi",
-        "description": "Mwen vle mennen oswa rejwenn fanmi Ozetazini."
-      },
-      {
-        "value": "work-business",
-        "label": "Travay ak biznis",
-        "description": "Mwen vle travay, envesti, oswa kòmanse yon biznis Ozetazini."
-      },
-      {
-        "value": "protection",
-        "label": "Pwoteksyon",
-        "description": "Mwen bezwen sekirite oswa èd imanitè."
-      },
-      {
-        "value": "defense",
-        "label": "Defans",
-        "description": "M ap fè fas ak depòtasyon, yon refi, oswa yon lòt pwoblèm legal."
-      },
-      {
-        "value": "other",
-        "label": "Pa sèten / Lòt",
-        "description": "Sitiyasyon mwen pa antre ladan l, oswa mwen pa konnen ki kote pou m kòmanse."
-      }
-    ]
-  }
 }

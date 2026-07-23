@@ -1,157 +1,128 @@
 {
-  "common": {
-    "title": "Counsela",
-    "others": "Outros",
-    "vs": "vs",
-    "continue": "Continuar",
-    "back": "Voltar"
-  },
-  "progress": {
-    "step": "Etapa",
-    "of": "de"
-  },
-  "steps": {
-    "language": "Idioma",
-    "focus": "Foco",
-    "communication": "Comunicação",
-    "price": "Preço",
-    "credentials": "Credenciais",
-    "case": "Seu caso"
-  },
-  "language": {
-    "tagline": "Counsela · Advogados de imigração",
-    "title": "Ajuda imigratória que trata você como uma pessoa, não como um número de caso.",
-    "description": "Advogados de imigração dos EUA licenciados, indicados para a sua situação exata, com alguém ao seu lado durante todo o caminho.",
-    "languageSelectionTitle": "Falamos o seu idioma.",
-    "info": {
-      "firstText": "Análise gratuita do caso",
-      "secondaryText": "Leva cerca de 3 minutos"
+    "common": {
+        "title": "Counsela",
+        "others": "Outros",
+        "vs": "vs",
+        "continue": "Continuar",
+        "back": "Voltar"
+    },
+    "progress": {
+        "step": "Etapa",
+        "of": "de"
+    },
+    "steps": {
+        "language": "Idioma",
+        "focus": "Foco",
+        "communication": "Comunicação",
+        "price": "Preço",
+        "case": "Seu caso"
+    },
+    "language": {
+        "tagline": "Counsela · Advogados de imigração",
+        "title": "Ajuda imigratória que trata você como uma pessoa, não como um número de caso.",
+        "description": "Advogados de imigração dos EUA licenciados, indicados para a sua situação exata, com alguém ao seu lado durante todo o caminho.",
+        "languageSelectionTitle": "Falamos o seu idioma.",
+        "info": {
+            "firstText": "Análise gratuita do caso",
+            "secondaryText": "Leva cerca de 3 minutos"
+        }
+    },
+    "focus": {
+        "title": "A diferença está no foco.",
+        "description": "Direito de imigração não é uma única tarefa. Quem é indicado para você muda tudo.",
+        "compare": {
+            "negativeText": "Um pequeno escritório com 1–4 advogados, dividido entre todos os tipos de casos de imigração.",
+            "positiveText": "Uma rede de centenas de advogados verificados, cada um focado em casos exatamente como o seu."
+        },
+        "coverage": {
+            "count": "1–4 advogados",
+            "areas": [
+                "EB-1",
+                "Asilo",
+                "H-1B",
+                "Green Card",
+                "O-1",
+                "Família",
+                "Estudante",
+                "TPS",
+                "L-1",
+                "Cidadania"
+            ]
+        },
+        "network": {
+            "title": "Seu tipo de caso",
+            "badge": "+ centenas",
+            "caption": "todos focados em casos como o seu"
+        }
+    },
+    "communication": {
+        "title": "A diferença está na comunicação.",
+        "description": "A parte mais difícil da imigração é o silêncio. Nós removemos isso.",
+        "compare": {
+            "negativeText": "Chamadas sem resposta. Semanas de silêncio. Ninguém para dizer o que está acontecendo com a sua vida.",
+            "positiveText": "Um especialista do caso que conhece seu arquivo e responde às suas perguntas, geralmente em horas, não semanas."
+        },
+        "missedCall": "Chamada perdida",
+        "day": "Seg",
+        "clientMessage": "Alguma atualização sobre meu caso?",
+        "noReply": "Sem resposta · 1 semana",
+        "specialist": {
+            "name": "Maria R.",
+            "role": "Seu especialista do caso"
+        },
+        "online": "Online",
+        "reply": "Boas notícias: sua resposta ao RFE está pronta. Por favor, revise.",
+        "response": {
+            "time": "Respondeu em 2 h",
+            "note": "Você é atualizado em cada etapa"
+        }
+    },
+    "price": {
+        "title": "A diferença está no preço.",
+        "description": "A IA tornou o trabalho jurídico mais rápido e barato. Nós repassamos essa economia para você.",
+        "compare": {
+            "negativeText": "Muitos escritórios já usam IA para fazer o trabalho mais rápido, e ainda cobram o preço antigo.",
+            "positiveText": "Construímos nossa empresa em torno da IA desde o primeiro dia e repassamos a economia para você: em média, honorários 20% menores, informados antecipadamente. Sem surpresas por hora."
+        },
+        "aiBadge": "Usa IA para trabalhar mais rápido",
+        "sameOldPrice": "O mesmo preço de sempre",
+        "saving": "honorários menores, em média",
+        "discount": "−20% antecipado",
+        "features": {
+            "quoted": "Informado antecipadamente",
+            "flat": "Valor fixo",
+            "noSurprises": "Sem surpresas por hora"
+        }
+    },
+    "case": {
+        "title": "O que traz você aqui hoje?",
+        "description": "Escolha a opção mais próxima; você poderá explicar os detalhes na próxima etapa.",
+        "options": [
+            {
+                "value": "family",
+                "label": "Família",
+                "description": "Quero trazer ou me juntar à família nos EUA."
+            },
+            {
+                "value": "work-business",
+                "label": "Trabalho e negócios",
+                "description": "Quero trabalhar, investir ou abrir um negócio nos EUA."
+            },
+            {
+                "value": "protection",
+                "label": "Proteção",
+                "description": "Preciso de segurança ou ajuda humanitária."
+            },
+            {
+                "value": "defense",
+                "label": "Defesa",
+                "description": "Estou enfrentando deportação, uma negativa ou outro problema jurídico."
+            },
+            {
+                "value": "other",
+                "label": "Não tenho certeza / Outro",
+                "description": "Minha situação não se encaixa, ou não sei por onde começar."
+            }
+        ]
     }
-  },
-  "focus": {
-    "title": "A diferença está no foco.",
-    "description": "Direito de imigração não é uma única tarefa. Quem é indicado para você muda tudo.",
-    "compare": {
-      "negativeText": "Um pequeno escritório com 1–4 advogados, dividido entre todos os tipos de casos de imigração.",
-      "positiveText": "Uma rede de centenas de advogados verificados, cada um focado em casos exatamente como o seu."
-    },
-    "coverage": {
-      "count": "1–4 advogados",
-      "areas": [
-        "EB-1",
-        "Asilo",
-        "H-1B",
-        "Green Card",
-        "O-1",
-        "Família",
-        "Estudante",
-        "TPS",
-        "L-1",
-        "Cidadania"
-      ]
-    },
-    "network": {
-      "title": "Seu tipo de caso",
-      "badge": "+ centenas",
-      "caption": "todos focados em casos como o seu"
-    }
-  },
-  "communication": {
-    "title": "A diferença está na comunicação.",
-    "description": "A parte mais difícil da imigração é o silêncio. Nós removemos isso.",
-    "compare": {
-      "negativeText": "Chamadas sem resposta. Semanas de silêncio. Ninguém para dizer o que está acontecendo com a sua vida.",
-      "positiveText": "Um especialista do caso que conhece seu arquivo e responde às suas perguntas, geralmente em horas, não semanas."
-    },
-    "missedCall": "Chamada perdida",
-    "day": "Seg",
-    "clientMessage": "Alguma atualização sobre meu caso?",
-    "noReply": "Sem resposta · 1 semana",
-    "specialist": {
-      "name": "Maria R.",
-      "role": "Seu especialista do caso"
-    },
-    "online": "Online",
-    "reply": "Boas notícias: sua resposta ao RFE está pronta. Por favor, revise.",
-    "response": {
-      "time": "Respondeu em 2 h",
-      "note": "Você é atualizado em cada etapa"
-    }
-  },
-  "price": {
-    "title": "A diferença está no preço.",
-    "description": "A IA tornou o trabalho jurídico mais rápido e barato. Nós repassamos essa economia para você.",
-    "compare": {
-      "negativeText": "Muitos escritórios já usam IA para fazer o trabalho mais rápido, e ainda cobram o preço antigo.",
-      "positiveText": "Construímos nossa empresa em torno da IA desde o primeiro dia e repassamos a economia para você: em média, honorários 20% menores, informados antecipadamente. Sem surpresas por hora."
-    },
-    "aiBadge": "Usa IA para trabalhar mais rápido",
-    "sameOldPrice": "O mesmo preço de sempre",
-    "saving": "honorários menores, em média",
-    "discount": "−20% antecipado",
-    "features": {
-      "quoted": "Informado antecipadamente",
-      "flat": "Valor fixo",
-      "noSurprises": "Sem surpresas por hora"
-    }
-  },
-  "credentials": {
-    "badge": "Advogados verificados",
-    "title": "Seu caso será conduzido por um advogado licenciado. Ponto final.",
-    "description": "Todo advogado da Counsela é licenciado para atuar, possui seguro de responsabilidade profissional e tem experiência real no tipo específico de caso que você traz para nós.",
-    "attorney": {
-      "title": "Seu advogado de imigração",
-      "description": "Licenciado, segurado e experiente"
-    },
-    "items": [
-      {
-        "title": "Licenciado e regular",
-        "description": "Registro ativo na ordem, verificado"
-      },
-      {
-        "title": "Seguro de responsabilidade profissional",
-        "description": "Cobertura confirmada no arquivo"
-      },
-      {
-        "title": "Experiência especializada",
-        "description": "Casos reais na sua categoria exata"
-      },
-      {
-        "title": "Verificado pela Counsela",
-        "description": "Avaliado antes de indicarmos para você"
-      }
-    ],
-    "notice": "Todos os três são verificados antes de verem seu arquivo."
-  },
-  "case": {
-    "title": "O que traz você aqui hoje?",
-    "description": "Escolha a opção mais próxima; você poderá explicar os detalhes na próxima etapa.",
-    "options": [
-      {
-        "value": "family",
-        "label": "Família",
-        "description": "Quero trazer ou me juntar à família nos EUA."
-      },
-      {
-        "value": "work-business",
-        "label": "Trabalho e negócios",
-        "description": "Quero trabalhar, investir ou abrir um negócio nos EUA."
-      },
-      {
-        "value": "protection",
-        "label": "Proteção",
-        "description": "Preciso de segurança ou ajuda humanitária."
-      },
-      {
-        "value": "defense",
-        "label": "Defesa",
-        "description": "Estou enfrentando deportação, uma negativa ou outro problema jurídico."
-      },
-      {
-        "value": "other",
-        "label": "Não tenho certeza / Outro",
-        "description": "Minha situação não se encaixa, ou não sei por onde começar."
-      }
-    ]
-  }
 }
