@@ -165,7 +165,7 @@
         "notice": "All three verified before they ever see your file."
     },
     "case": {
-        "title": "What brings you here today?",
+        "title": "Tell us about your case.",
         "description": "Choose the closest match — you can explain the details in the next step.",
         "options": [
             {
@@ -249,7 +249,7 @@
             }
         },
         "record": {
-            "title": "Tell us about your situation — in your own words.",
+            "title": "Describe your situation — in your own words.",
             "description": "Speak in any language. Talk to us like you'd talk to a friend. The more you share, the better we can pair you with the right attorney.",
             "topicsTitle": "You might touch on:",
             "start": "Start recording",
