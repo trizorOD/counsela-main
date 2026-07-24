@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import {
     getNextTeamIndex,
     getVisibleTeamIndex,
@@ -10,6 +10,15 @@ import {
 export function useFocusRotation({ isActive, teamCount }) {
     const [activeTeamIndex, setActiveTeamIndex] = useState(0);
     const [isSwitching, setIsSwitching] = useState(false);
+    const [selectionCount, setSelectionCount] = useState(0);
+
+    // Bumping the counter restarts the effect below even when the picked team is
+    // the one already on screen, so a tap always restarts the full countdown.
+    const selectTeam = useCallback((teamIndex) => {
+        setActiveTeamIndex(teamIndex);
+        setIsSwitching(false);
+        setSelectionCount((currentCount) => currentCount + 1);
+    }, []);
 
     useEffect(() => {
         if (isActive) {
@@ -37,10 +46,11 @@ export function useFocusRotation({ isActive, teamCount }) {
             window.clearTimeout(fadeOutTimerId);
             window.clearTimeout(switchTimerId);
         };
-    }, [activeTeamIndex, isActive, teamCount]);
+    }, [activeTeamIndex, isActive, selectionCount, teamCount]);
 
     return {
         activeTeamIndex: getVisibleTeamIndex(activeTeamIndex, teamCount),
-        isSwitching
+        isSwitching,
+        selectTeam
     };
 }

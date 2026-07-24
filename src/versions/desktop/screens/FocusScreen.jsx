@@ -66,7 +66,7 @@ function FocusScreen({ onNext }) {
                                 <div className="network__lawyers">
                                     {photoLawyers.map((photo) => (
                                         <span className="network__lawyer" key={photo}>
-                                            <img src={photo} alt="" loading="lazy" />
+                                            <img src={photo} alt="" />
                                         </span>
                                     ))}
                                 </div>

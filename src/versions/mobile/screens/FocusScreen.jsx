@@ -29,7 +29,7 @@ const teamPhotos = [
 
 function FocusScreen({ focusRotation, focusTeams }) {
     const { t } = useTranslation();
-    const { activeTeamIndex, isSwitching } = focusRotation;
+    const { activeTeamIndex, isSwitching, selectTeam } = focusRotation;
     const activeTeam = focusTeams[activeTeamIndex];
     const activePhotos = teamPhotos[activeTeamIndex] || [];
 
@@ -44,12 +44,15 @@ function FocusScreen({ focusRotation, focusTeams }) {
                 <div className="mobile-benefit-card focus-card">
                     <div className="focus-card__areas">
                         {focusTeams.map((team, index) => (
-                            <span
+                            <button
                                 className={`focus-card__area ${index === activeTeamIndex ? "is-selected" : ""}`}
+                                type="button"
                                 key={team.area}
+                                aria-pressed={index === activeTeamIndex}
+                                onClick={() => selectTeam(index)}
                             >
                                 {team.area}
-                            </span>
+                            </button>
                         ))}
                     </div>
 
@@ -60,7 +63,7 @@ function FocusScreen({ focusRotation, focusTeams }) {
                             {activeTeam?.members.map((member, index) => (
                                 <div className="focus-team__member" key={member.name}>
                                     <span className="focus-team__avatar">
-                                        <img src={activePhotos[index]} alt="" loading="lazy" />
+                                        <img src={activePhotos[index]} alt="" />
                                     </span>
                                     <span className="focus-team__person">
                                         <span className="focus-team__name">{member.name}</span>
