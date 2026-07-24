@@ -43,6 +43,10 @@ function escapeHtml(value) {
         .replaceAll("'", "&#39;");
 }
 
+function escapeHtmlLines(value) {
+    return escapeHtml(value).replaceAll(/\r?\n/g, "<br />");
+}
+
 function getCaseLabel(caseValue) {
     return caseLabels[caseValue] || caseValue || "Not provided";
 }
@@ -80,33 +84,51 @@ export function createLeadText(lead) {
 
 export function createLeadHtml(lead) {
     const rows = createLeadFields(lead)
-        .map(({ label, value }) => `
+        .map(({ label, value }, index) => `
                             <tr>
-                                <td style="padding:6px 16px 6px 0;color:rgba(0,0,0,0.45);font-size:12px;white-space:nowrap;vertical-align:top;">${escapeHtml(label)}</td>
-                                <td style="padding:6px 0;color:#17183c;font-size:14px;font-weight:500;">${escapeHtml(value || "Not provided")}</td>
+                                <td style="padding:${index ? "11px" : "0"} 16px 0 0;color:#8b90a8;font-size:12px;line-height:150%;white-space:nowrap;vertical-align:top;">${escapeHtml(label)}</td>
+                                <td style="padding:${index ? "11px" : "0"} 0 0;color:#17183c;font-size:14px;font-weight:bold;line-height:150%;">${escapeHtml(value || "Not provided")}</td>
                             </tr>`)
         .join("");
 
+    // Email clients drop border-radius when a table uses border-collapse:collapse,
+    // and Outlook ignores rgba colours, so the card sticks to separate borders and
+    // solid hex values. Outlook still squares the corners, which degrades cleanly.
     return `<!doctype html>
 <html>
-    <body style="margin:0;padding:24px;background-color:#f2f4ff;font-family:Arial,Helvetica,sans-serif;">
-        <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;max-width:560px;margin:0 auto;border-collapse:collapse;background-color:#ffffff;border:1px solid rgba(78,108,242,0.22);border-radius:18px;">
+    <body style="margin:0;padding:24px 16px;background-color:#f2f4ff;font-family:Arial,Helvetica,sans-serif;">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:560px;margin:0 auto;border-collapse:separate;border-spacing:0;">
             <tr>
-                <td style="padding:28px 28px 0;">
-                    <div style="color:#4e6cf2;font-size:12px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;">Counsela</div>
-                    <h1 style="margin:12px 0 0;color:#17183c;font-size:22px;font-weight:600;line-height:130%;">New case review request</h1>
-                </td>
-            </tr>
-            <tr>
-                <td style="padding:20px 28px 0;">
-                    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;">${rows}
+                <td style="padding:0;background-color:#ffffff;border:1px solid #e1e6f9;border-radius:18px;">
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:separate;border-spacing:0;">
+                        <tr>
+                            <td style="padding:30px 30px 0;">
+                                <div style="color:#4e6cf2;font-size:11px;font-weight:bold;letter-spacing:1.6px;text-transform:uppercase;">Counsela</div>
+                                <div style="margin-top:10px;color:#17183c;font-size:22px;font-weight:bold;line-height:130%;">New case review request</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:22px 30px 0;">
+                                <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:separate;border-spacing:0;">${rows}
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:24px 30px 0;">
+                                <div style="height:1px;line-height:1px;font-size:0;background-color:#eceffb;">&nbsp;</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:20px 30px 30px;">
+                                <div style="color:#8b90a8;font-size:11px;font-weight:bold;letter-spacing:1.2px;text-transform:uppercase;">Statement</div>
+                                <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="width:100%;margin-top:12px;border-collapse:separate;border-spacing:0;">
+                                    <tr>
+                                        <td style="padding:18px 20px;background-color:#f7f6fb;border:1px solid #eceffb;border-radius:14px;color:#17183c;font-size:14px;line-height:165%;">${escapeHtmlLines(lead.statement || "Not provided")}</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
                     </table>
-                </td>
-            </tr>
-            <tr>
-                <td style="padding:22px 28px 28px;">
-                    <div style="color:rgba(0,0,0,0.45);font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;">Statement</div>
-                    <div style="margin-top:10px;padding:18px 20px;border-radius:14px;background-color:#f7f6fb;color:#17183c;font-size:14px;line-height:165%;white-space:pre-wrap;">${escapeHtml(lead.statement || "Not provided")}</div>
                 </td>
             </tr>
         </table>

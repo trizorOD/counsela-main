@@ -53,6 +53,23 @@ test("escapes submitted values so they cannot inject markup", () => {
     assert.match(html, /5 &lt; 6 &amp; &quot;quoted&quot;/);
 });
 
+test("keeps the line breaks of a spoken statement readable", () => {
+    const html = createLeadHtml({
+        ...lead,
+        statement: "First the notice arrived.\nThen my employer called."
+    });
+
+    assert.match(html, /First the notice arrived\.<br \/>Then my employer called\./);
+});
+
+test("renders a card whose rounded corners survive email clients", () => {
+    const html = createLeadHtml(lead);
+
+    assert.doesNotMatch(html, /border-collapse:collapse/);
+    assert.doesNotMatch(html, /rgba\(/);
+    assert.match(html, /border:1px solid #e1e6f9;border-radius:18px/);
+});
+
 test("falls back to a placeholder for answers that are missing", () => {
     const fields = createLeadFields({ fullName: "Ada Lovelace" });
     const text = createLeadText({ fullName: "Ada Lovelace" });
