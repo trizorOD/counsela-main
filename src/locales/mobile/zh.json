@@ -30,32 +30,122 @@
     "focus": {
         "title": "最适合您具体案件的律师。",
         "description": "移民法涵盖数十种不同类型的案件。我们为您匹配专门处理您这类案件的律师。",
-        "areas": [
-            "EB-1",
-            "H-1B",
-            "家庭",
-            "庇护",
-            "辩护",
-            "F-1"
+        "teams": [
+            {
+                "area": "EB-1",
+                "title": "您的 EB-1 团队",
+                "members": [
+                    {
+                        "name": "Jessica Baurba",
+                        "role": "商业绿卡律师"
+                    },
+                    {
+                        "name": "Abel Portnoy",
+                        "role": "工作与商业律师助理"
+                    },
+                    {
+                        "name": "Emanuel Rosso",
+                        "role": "绿卡律师"
+                    }
+                ],
+                "more": "+189 名律师"
+            },
+            {
+                "area": "H-1B",
+                "title": "您的 H-1B 团队",
+                "members": [
+                    {
+                        "name": "Priya Raman",
+                        "role": "H-1B 与 LCA 律师助理"
+                    },
+                    {
+                        "name": "Marcus Lindqvist",
+                        "role": "工作签证律师"
+                    },
+                    {
+                        "name": "Hanna Lee",
+                        "role": "工作签证律师"
+                    }
+                ],
+                "more": "+136 名律师"
+            },
+            {
+                "area": "家庭",
+                "title": "您的家庭团队",
+                "members": [
+                    {
+                        "name": "Sofia Reyes",
+                        "role": "家庭移民律师"
+                    },
+                    {
+                        "name": "Linh Tran",
+                        "role": "家庭申请律师助理"
+                    },
+                    {
+                        "name": "Ashley Bennett",
+                        "role": "家庭申请律师助理"
+                    }
+                ],
+                "more": "+206 名律师"
+            },
+            {
+                "area": "庇护",
+                "title": "您的庇护团队",
+                "members": [
+                    {
+                        "name": "Fatima Nasser",
+                        "role": "庇护与人道案件律师"
+                    },
+                    {
+                        "name": "Daniel Owusu",
+                        "role": "难民案件律师助理"
+                    },
+                    {
+                        "name": "David Coleman",
+                        "role": "难民案件律师助理"
+                    }
+                ],
+                "more": "+136 名律师"
+            },
+            {
+                "area": "辩护",
+                "title": "您的辩护团队",
+                "members": [
+                    {
+                        "name": "Rafael Ortiz",
+                        "role": "递解辩护律师"
+                    },
+                    {
+                        "name": "Grace Kim",
+                        "role": "遣返与保释律师助理"
+                    },
+                    {
+                        "name": "Lucas Costa",
+                        "role": "递解辩护律师"
+                    }
+                ],
+                "more": "+160 名律师"
+            },
+            {
+                "area": "F-1",
+                "title": "您的 F-1 团队",
+                "members": [
+                    {
+                        "name": "Elena Petrova",
+                        "role": "学生签证律师"
+                    },
+                    {
+                        "name": "Kofi Mensah",
+                        "role": "SEVIS 与 OPT 律师助理"
+                    },
+                    {
+                        "name": "Michael Sullivan",
+                        "role": "SEVIS 与 OPT 律师助理"
+                    }
+                ],
+                "more": "+182 名律师"
+            }
         ],
-        "team": {
-            "title": "您的 H-1B 团队",
-            "members": [
-                {
-                    "name": "Priya Raman",
-                    "role": "H-1B 与 LCA 律师助理"
-                },
-                {
-                    "name": "Marcus Lindqvist",
-                    "role": "工作签证律师"
-                },
-                {
-                    "name": "Hanna Lee",
-                    "role": "工作签证律师"
-                }
-            ],
-            "more": "+136 名律师"
-        },
         "summary": "由数百名经过审核的律师组成的网络。"
     },
     "communication": {

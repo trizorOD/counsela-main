@@ -71,32 +71,122 @@
     "focus": {
         "title": "The right lawyer for your exact case.",
         "description": "Immigration law is dozens of different cases. We connect you with an attorney who focuses on exactly yours.",
-        "areas": [
-            "EB-1",
-            "H-1B",
-            "Family",
-            "Asylum",
-            "Defence",
-            "F-1"
+        "teams": [
+            {
+                "area": "EB-1",
+                "title": "Your EB-1 team",
+                "members": [
+                    {
+                        "name": "Jessica Baurba",
+                        "role": "Business green cards attorney"
+                    },
+                    {
+                        "name": "Abel Portnoy",
+                        "role": "Work & business paralegal"
+                    },
+                    {
+                        "name": "Emanuel Rosso",
+                        "role": "Green cards attorney"
+                    }
+                ],
+                "more": "+189 lawyers"
+            },
+            {
+                "area": "H-1B",
+                "title": "Your H-1B team",
+                "members": [
+                    {
+                        "name": "Priya Raman",
+                        "role": "H-1B & LCA paralegal"
+                    },
+                    {
+                        "name": "Marcus Lindqvist",
+                        "role": "Work visa attorney"
+                    },
+                    {
+                        "name": "Hanna Lee",
+                        "role": "Work visa attorney"
+                    }
+                ],
+                "more": "+136 lawyers"
+            },
+            {
+                "area": "Family",
+                "title": "Your Family team",
+                "members": [
+                    {
+                        "name": "Sofia Reyes",
+                        "role": "Family immigration attorney"
+                    },
+                    {
+                        "name": "Linh Tran",
+                        "role": "Family petitions paralegal"
+                    },
+                    {
+                        "name": "Ashley Bennett",
+                        "role": "Family petitions paralegal"
+                    }
+                ],
+                "more": "+206 lawyers"
+            },
+            {
+                "area": "Asylum",
+                "title": "Your Asylum team",
+                "members": [
+                    {
+                        "name": "Fatima Nasser",
+                        "role": "Asylum & humanitarian attorney"
+                    },
+                    {
+                        "name": "Daniel Owusu",
+                        "role": "Refugee case paralegal"
+                    },
+                    {
+                        "name": "David Coleman",
+                        "role": "Refugee case paralegal"
+                    }
+                ],
+                "more": "+136 lawyers"
+            },
+            {
+                "area": "Defence",
+                "title": "Your Defence team",
+                "members": [
+                    {
+                        "name": "Rafael Ortiz",
+                        "role": "Deportation defense attorney"
+                    },
+                    {
+                        "name": "Grace Kim",
+                        "role": "Removal & bond paralegal"
+                    },
+                    {
+                        "name": "Lucas Costa",
+                        "role": "Deportation defense attorney"
+                    }
+                ],
+                "more": "+160 lawyers"
+            },
+            {
+                "area": "F-1",
+                "title": "Your F-1 team",
+                "members": [
+                    {
+                        "name": "Elena Petrova",
+                        "role": "Student visa attorney"
+                    },
+                    {
+                        "name": "Kofi Mensah",
+                        "role": "SEVIS & OPT paralegal"
+                    },
+                    {
+                        "name": "Michael Sullivan",
+                        "role": "SEVIS & OPT paralegal"
+                    }
+                ],
+                "more": "+182 lawyers"
+            }
         ],
-        "team": {
-            "title": "Your H-1B team",
-            "members": [
-                {
-                    "name": "Priya Raman",
-                    "role": "H-1B & LCA paralegal"
-                },
-                {
-                    "name": "Marcus Lindqvist",
-                    "role": "Work visa attorney"
-                },
-                {
-                    "name": "Hanna Lee",
-                    "role": "Work visa attorney"
-                }
-            ],
-            "more": "+136 lawyers"
-        },
         "summary": "A network of hundreds of vetted attorneys."
     },
     "communication": {

@@ -30,32 +30,122 @@
     "focus": {
         "title": "المحامي المناسب لقضيتك تحديدا.",
         "description": "يشمل قانون الهجرة عشرات الأنواع المختلفة من القضايا. نربطك بمحام يركز تحديدا على نوع قضيتك.",
-        "areas": [
-            "EB-1",
-            "H-1B",
-            "العائلة",
-            "اللجوء",
-            "الدفاع",
-            "F-1"
+        "teams": [
+            {
+                "area": "EB-1",
+                "title": "فريق EB-1 الخاص بك",
+                "members": [
+                    {
+                        "name": "Jessica Baurba",
+                        "role": "محامي البطاقات الخضراء للأعمال"
+                    },
+                    {
+                        "name": "Abel Portnoy",
+                        "role": "مساعد قانوني لشؤون العمل والأعمال"
+                    },
+                    {
+                        "name": "Emanuel Rosso",
+                        "role": "محامي البطاقات الخضراء"
+                    }
+                ],
+                "more": "+189 محاميا"
+            },
+            {
+                "area": "H-1B",
+                "title": "فريق H-1B الخاص بك",
+                "members": [
+                    {
+                        "name": "Priya Raman",
+                        "role": "مساعدة قانونية لقضايا H-1B وLCA"
+                    },
+                    {
+                        "name": "Marcus Lindqvist",
+                        "role": "محامي تأشيرات عمل"
+                    },
+                    {
+                        "name": "Hanna Lee",
+                        "role": "محامية تأشيرات عمل"
+                    }
+                ],
+                "more": "+136 محاميا"
+            },
+            {
+                "area": "العائلة",
+                "title": "فريق العائلة الخاص بك",
+                "members": [
+                    {
+                        "name": "Sofia Reyes",
+                        "role": "محامي الهجرة العائلية"
+                    },
+                    {
+                        "name": "Linh Tran",
+                        "role": "مساعد قانوني للطلبات العائلية"
+                    },
+                    {
+                        "name": "Ashley Bennett",
+                        "role": "مساعد قانوني للطلبات العائلية"
+                    }
+                ],
+                "more": "+206 محاميا"
+            },
+            {
+                "area": "اللجوء",
+                "title": "فريق اللجوء الخاص بك",
+                "members": [
+                    {
+                        "name": "Fatima Nasser",
+                        "role": "محامي اللجوء والقضايا الإنسانية"
+                    },
+                    {
+                        "name": "Daniel Owusu",
+                        "role": "مساعد قانوني لقضايا اللاجئين"
+                    },
+                    {
+                        "name": "David Coleman",
+                        "role": "مساعد قانوني لقضايا اللاجئين"
+                    }
+                ],
+                "more": "+136 محاميا"
+            },
+            {
+                "area": "الدفاع",
+                "title": "فريق الدفاع الخاص بك",
+                "members": [
+                    {
+                        "name": "Rafael Ortiz",
+                        "role": "محامي الدفاع ضد الترحيل"
+                    },
+                    {
+                        "name": "Grace Kim",
+                        "role": "مساعد قانوني لشؤون الإبعاد والكفالة"
+                    },
+                    {
+                        "name": "Lucas Costa",
+                        "role": "محامي الدفاع ضد الترحيل"
+                    }
+                ],
+                "more": "+160 محاميا"
+            },
+            {
+                "area": "F-1",
+                "title": "فريق F-1 الخاص بك",
+                "members": [
+                    {
+                        "name": "Elena Petrova",
+                        "role": "محامي تأشيرات الطلاب"
+                    },
+                    {
+                        "name": "Kofi Mensah",
+                        "role": "مساعد قانوني لـ SEVIS وOPT"
+                    },
+                    {
+                        "name": "Michael Sullivan",
+                        "role": "مساعد قانوني لـ SEVIS وOPT"
+                    }
+                ],
+                "more": "+182 محاميا"
+            }
         ],
-        "team": {
-            "title": "فريق H-1B الخاص بك",
-            "members": [
-                {
-                    "name": "Priya Raman",
-                    "role": "مساعدة قانونية لقضايا H-1B وLCA"
-                },
-                {
-                    "name": "Marcus Lindqvist",
-                    "role": "محامي تأشيرات عمل"
-                },
-                {
-                    "name": "Hanna Lee",
-                    "role": "محامية تأشيرات عمل"
-                }
-            ],
-            "more": "+136 محاميا"
-        },
         "summary": "شبكة من مئات المحامين المعتمدين."
     },
     "communication": {

@@ -30,32 +30,122 @@
     "focus": {
         "title": "El abogado adecuado para tu caso exacto.",
         "description": "La ley de inmigración abarca decenas de casos diferentes. Te conectamos con un abogado especializado exactamente en el tuyo.",
-        "areas": [
-            "EB-1",
-            "H-1B",
-            "Familia",
-            "Asilo",
-            "Defensa",
-            "F-1"
+        "teams": [
+            {
+                "area": "EB-1",
+                "title": "Tu equipo de EB-1",
+                "members": [
+                    {
+                        "name": "Jessica Baurba",
+                        "role": "Abogado de green cards de negocios"
+                    },
+                    {
+                        "name": "Abel Portnoy",
+                        "role": "Asistente legal de trabajo y negocios"
+                    },
+                    {
+                        "name": "Emanuel Rosso",
+                        "role": "Abogado de green cards"
+                    }
+                ],
+                "more": "+189 abogados"
+            },
+            {
+                "area": "H-1B",
+                "title": "Tu equipo de H-1B",
+                "members": [
+                    {
+                        "name": "Priya Raman",
+                        "role": "Asistente legal de H-1B y LCA"
+                    },
+                    {
+                        "name": "Marcus Lindqvist",
+                        "role": "Abogado de visas de trabajo"
+                    },
+                    {
+                        "name": "Hanna Lee",
+                        "role": "Abogada de visas de trabajo"
+                    }
+                ],
+                "more": "+136 abogados"
+            },
+            {
+                "area": "Familia",
+                "title": "Tu equipo de Familia",
+                "members": [
+                    {
+                        "name": "Sofia Reyes",
+                        "role": "Abogado de inmigración familiar"
+                    },
+                    {
+                        "name": "Linh Tran",
+                        "role": "Asistente legal de peticiones familiares"
+                    },
+                    {
+                        "name": "Ashley Bennett",
+                        "role": "Asistente legal de peticiones familiares"
+                    }
+                ],
+                "more": "+206 abogados"
+            },
+            {
+                "area": "Asilo",
+                "title": "Tu equipo de Asilo",
+                "members": [
+                    {
+                        "name": "Fatima Nasser",
+                        "role": "Abogado de asilo y casos humanitarios"
+                    },
+                    {
+                        "name": "Daniel Owusu",
+                        "role": "Asistente legal de casos de refugiados"
+                    },
+                    {
+                        "name": "David Coleman",
+                        "role": "Asistente legal de casos de refugiados"
+                    }
+                ],
+                "more": "+136 abogados"
+            },
+            {
+                "area": "Defensa",
+                "title": "Tu equipo de Defensa",
+                "members": [
+                    {
+                        "name": "Rafael Ortiz",
+                        "role": "Abogado de defensa contra la deportación"
+                    },
+                    {
+                        "name": "Grace Kim",
+                        "role": "Asistente legal de expulsión y fianzas"
+                    },
+                    {
+                        "name": "Lucas Costa",
+                        "role": "Abogado de defensa contra la deportación"
+                    }
+                ],
+                "more": "+160 abogados"
+            },
+            {
+                "area": "F-1",
+                "title": "Tu equipo de F-1",
+                "members": [
+                    {
+                        "name": "Elena Petrova",
+                        "role": "Abogado de visas de estudiante"
+                    },
+                    {
+                        "name": "Kofi Mensah",
+                        "role": "Asistente legal de SEVIS y OPT"
+                    },
+                    {
+                        "name": "Michael Sullivan",
+                        "role": "Asistente legal de SEVIS y OPT"
+                    }
+                ],
+                "more": "+182 abogados"
+            }
         ],
-        "team": {
-            "title": "Tu equipo de H-1B",
-            "members": [
-                {
-                    "name": "Priya Raman",
-                    "role": "Asistente legal de H-1B y LCA"
-                },
-                {
-                    "name": "Marcus Lindqvist",
-                    "role": "Abogado de visas de trabajo"
-                },
-                {
-                    "name": "Hanna Lee",
-                    "role": "Abogada de visas de trabajo"
-                }
-            ],
-            "more": "+136 abogados"
-        },
         "summary": "Una red de cientos de abogados verificados."
     },
     "communication": {

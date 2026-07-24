@@ -2,10 +2,12 @@ import { useTranslation } from "react-i18next";
 import CompareCard from "../../../components/CompareCard";
 import ContinueButton from "../../../components/ContinueButton";
 
+// Only the numbered pool photos (01, 02, ...) belong here. The <team>-<member>
+// portraits in the same folder are driven by the mobile focus rotation instead.
 const photoLawyers = Object.values(
-    import.meta.glob("../../../assets/lawyers/*.{png,jpg,jpeg,webp,avif}", {
+    import.meta.glob("../../../assets/lawyers/0*.{png,jpg,jpeg,webp,avif}", {
         eager: true,
-        import: "default",
+        import: "default"
     })
 );
 

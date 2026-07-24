@@ -30,32 +30,122 @@
     "focus": {
         "title": "Bon avoka a pou ka egzak ou.",
         "description": "Lwa imigrasyon gen plizyè dizèn kalite ka diferan. Nou konekte w ak yon avoka ki konsantre egzakteman sou pa w la.",
-        "areas": [
-            "EB-1",
-            "H-1B",
-            "Fanmi",
-            "Azil",
-            "Defans",
-            "F-1"
+        "teams": [
+            {
+                "area": "EB-1",
+                "title": "Ekip EB-1 ou",
+                "members": [
+                    {
+                        "name": "Jessica Baurba",
+                        "role": "Avoka green card biznis"
+                    },
+                    {
+                        "name": "Abel Portnoy",
+                        "role": "Asistan legal travay ak biznis"
+                    },
+                    {
+                        "name": "Emanuel Rosso",
+                        "role": "Avoka green card"
+                    }
+                ],
+                "more": "+189 avoka"
+            },
+            {
+                "area": "H-1B",
+                "title": "Ekip H-1B ou",
+                "members": [
+                    {
+                        "name": "Priya Raman",
+                        "role": "Asistan legal H-1B ak LCA"
+                    },
+                    {
+                        "name": "Marcus Lindqvist",
+                        "role": "Avoka viza travay"
+                    },
+                    {
+                        "name": "Hanna Lee",
+                        "role": "Avoka viza travay"
+                    }
+                ],
+                "more": "+136 avoka"
+            },
+            {
+                "area": "Fanmi",
+                "title": "Ekip Fanmi ou",
+                "members": [
+                    {
+                        "name": "Sofia Reyes",
+                        "role": "Avoka imigrasyon fanmi"
+                    },
+                    {
+                        "name": "Linh Tran",
+                        "role": "Asistan legal petisyon fanmi"
+                    },
+                    {
+                        "name": "Ashley Bennett",
+                        "role": "Asistan legal petisyon fanmi"
+                    }
+                ],
+                "more": "+206 avoka"
+            },
+            {
+                "area": "Azil",
+                "title": "Ekip Azil ou",
+                "members": [
+                    {
+                        "name": "Fatima Nasser",
+                        "role": "Avoka azil ak zafè imanitè"
+                    },
+                    {
+                        "name": "Daniel Owusu",
+                        "role": "Asistan legal dosye refijye"
+                    },
+                    {
+                        "name": "David Coleman",
+                        "role": "Asistan legal dosye refijye"
+                    }
+                ],
+                "more": "+136 avoka"
+            },
+            {
+                "area": "Defans",
+                "title": "Ekip Defans ou",
+                "members": [
+                    {
+                        "name": "Rafael Ortiz",
+                        "role": "Avoka defans kont depòtasyon"
+                    },
+                    {
+                        "name": "Grace Kim",
+                        "role": "Asistan legal ekspilsyon ak kosyon"
+                    },
+                    {
+                        "name": "Lucas Costa",
+                        "role": "Avoka defans kont depòtasyon"
+                    }
+                ],
+                "more": "+160 avoka"
+            },
+            {
+                "area": "F-1",
+                "title": "Ekip F-1 ou",
+                "members": [
+                    {
+                        "name": "Elena Petrova",
+                        "role": "Avoka viza etidyan"
+                    },
+                    {
+                        "name": "Kofi Mensah",
+                        "role": "Asistan legal SEVIS ak OPT"
+                    },
+                    {
+                        "name": "Michael Sullivan",
+                        "role": "Asistan legal SEVIS ak OPT"
+                    }
+                ],
+                "more": "+182 avoka"
+            }
         ],
-        "team": {
-            "title": "Ekip H-1B ou",
-            "members": [
-                {
-                    "name": "Priya Raman",
-                    "role": "Asistan legal H-1B ak LCA"
-                },
-                {
-                    "name": "Marcus Lindqvist",
-                    "role": "Avoka viza travay"
-                },
-                {
-                    "name": "Hanna Lee",
-                    "role": "Avoka viza travay"
-                }
-            ],
-            "more": "+136 avoka"
-        },
         "summary": "Yon rezo plizyè santèn avoka verifye."
     },
     "communication": {
