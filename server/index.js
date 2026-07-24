@@ -3,6 +3,7 @@ import { readFile, stat } from "node:fs/promises";
 import { extname, resolve, sep } from "node:path";
 import { Readable } from "node:stream";
 import { createServer as createViteServer, loadEnv } from "vite";
+import { handleLeadRequest as handleLeadWebRequest } from "./leadHandler.js";
 import { handleStatementRequest as handleStatementWebRequest } from "./statementHandler.js";
 
 const root = process.cwd();
@@ -32,7 +33,22 @@ function sendJson(response, status, payload) {
     response.end(JSON.stringify(payload));
 }
 
-async function handleStatementRequest(request, response) {
+const apiRoutes = [
+    {
+        handle: (webRequest) => handleStatementWebRequest(webRequest, {
+            apiKey: process.env.OPENAI_API_KEY
+        }),
+        path: "/api/statement"
+    },
+    {
+        handle: (webRequest) => handleLeadWebRequest(webRequest, {
+            apiKey: process.env.RESEND_API_KEY
+        }),
+        path: "/api/lead"
+    }
+];
+
+async function handleApiRequest(request, response, handleWebRequest) {
     const requestController = new AbortController();
     const abortRequest = () => requestController.abort();
     const method = request.method || "GET";
@@ -58,9 +74,7 @@ async function handleStatementRequest(request, response) {
         `http://${request.headers.host || "localhost"}${request.url}`,
         requestInit
     );
-    const webResponse = await handleStatementWebRequest(webRequest, {
-        apiKey: process.env.OPENAI_API_KEY
-    });
+    const webResponse = await handleWebRequest(webRequest);
 
     response.writeHead(webResponse.status, Object.fromEntries(webResponse.headers.entries()));
 
@@ -126,13 +140,15 @@ const vite = isDevelopment
     : null;
 
 const server = createServer((request, response) => {
-    if (request.url?.startsWith("/api/statement")) {
-        handleStatementRequest(request, response).catch((error) => {
+    const apiRoute = apiRoutes.find(({ path }) => request.url?.startsWith(path));
+
+    if (apiRoute) {
+        handleApiRequest(request, response, apiRoute.handle).catch(() => {
             if (!response.headersSent) {
                 sendJson(response, 500, {
                     error: {
-                        code: "processing_failed",
-                        message: "We could not process the recordings. Please try again."
+                        code: "request_failed",
+                        message: "We could not complete the request. Please try again."
                     }
                 });
             } else if (!response.writableEnded) {

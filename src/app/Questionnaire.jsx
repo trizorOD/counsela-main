@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Swiper, SwiperSlide } from "swiper/react";
 import gsap from "gsap";
+import { submitLead } from "../api/lead";
 import { StatementFlowProvider } from "../features/statement/StatementFlowProvider.jsx";
 import {
     clearSavedData,
@@ -21,7 +22,7 @@ function Questionnaire({ version }) {
     const { t, i18n } = useTranslation();
     const { Footer, Header, steps } = version;
     const swiperRef = useRef(null);
-    const loggedCompletionRef = useRef("");
+    const submittedCompletionRef = useRef("");
     const activeTransitionRef = useRef(null);
     const transitionDurationRef = useRef(0);
     const pendingFromHeightRef = useRef(null);
@@ -56,13 +57,21 @@ function Questionnaire({ version }) {
         const collectedData = normalizeCollectedFormData(formData);
         const fingerprint = JSON.stringify(collectedData);
 
-        if (loggedCompletionRef.current === fingerprint) {
+        if (submittedCompletionRef.current === fingerprint) {
             return;
         }
 
-        loggedCompletionRef.current = fingerprint;
-        console.log("Collected form data:", collectedData);
-        clearSavedData();
+        submittedCompletionRef.current = fingerprint;
+        submitLead(collectedData)
+            .then(() => {
+                clearSavedData();
+            })
+            .catch((error) => {
+                // Keep the saved answers so a reload can retry the delivery; the
+                // completion screen stays as it is either way.
+                submittedCompletionRef.current = "";
+                console.error("Could not deliver the case review request:", error);
+            });
     }, [currentStep, formData]);
 
     const updateFormData = useCallback((name, value) => {
